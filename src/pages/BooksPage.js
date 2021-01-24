@@ -23,7 +23,7 @@ const BooksPage = (props) => {
             return "";
         }));
     } 
-    
+
     return(
        <Tab.Container defaultActiveKey="#link1">
             <Row>
@@ -34,32 +34,12 @@ const BooksPage = (props) => {
                         <ListGroup.Item action onClick={() => {handleBooks(activeUser.booksWantToRead)}} variant="danger">ספרים שברצוני לקרוא</ListGroup.Item>
                         <ListGroup.Item action onClick={() => {handleBooks(activeUser.booksWantToOwn)}} variant="danger">ספרים שברצוני לרכוש</ListGroup.Item>
                         <ListGroup.Item action onClick={() => {handleBooks(activeUser.booksLoaned)}} variant="danger">ספרים שהשאלתי</ListGroup.Item>
-                        {/* <ListGroup.Item action onClick={alertClicked}>
-                        This one is a button
-                        </ListGroup.Item> */}
                     </ListGroup>
                  </Col>
                 <Col sm={10}>
                     <Row className="justify-content-even">
                         {booksToShow}
                     </Row>
-                    {/* <Tab.Content>
-                        <Tab.Pane eventKey="#booksOwnedLink">
-                        {booksOwnedCards}
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="#booksReadLink">
-                        {booksReadCards}
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="#booksWantToReadLink">
-                        {booksWantToReadCards}
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="#booksWantToOwnLink">
-                        {booksWantToOwnCards}
-                        </Tab.Pane>
-                        <Tab.Pane eventKey="#booksLoanedLink">
-                        {booksLoanedCards}
-                        </Tab.Pane>
-                    </Tab.Content> */}
                 </Col>
             </Row>
         </Tab.Container>

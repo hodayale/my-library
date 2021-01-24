@@ -2,6 +2,8 @@ import { Card, Form } from "react-bootstrap";
 import React from 'react';
 import { Redirect } from "react-router-dom";
 
+import { useEffect } from 'react';
+
 const BookCard = (props) => {
     const {activeUser, filter, bookId, bookName, bookAuther, bookPicture} = props;
     //const [BookPicture, setBookPicture] = React.useState(undefined);
@@ -12,6 +14,31 @@ const BookCard = (props) => {
     const [bookWantToOwn, setbookWantToOwn] = React.useState(false);
     const [bookLoaned, setbookLoaned] = React.useState('');
 
+    useEffect(() => {
+        if(activeUser) {
+            const booksOwned = activeUser.booksOwned.split(',');
+            const booksRead = activeUser.booksRead.split(',');
+            const booksWantToRead = activeUser.booksWantToRead.split(',');
+            const booksWantToOwn = activeUser.booksWantToOwn.split(',');
+    
+            if(booksOwned.includes(bookId.toString())) {
+                setbookOwned(true);
+            }
+    
+            if(booksRead.includes(bookId.toString())) {
+                setbookRead(true);
+            }
+    
+            if(booksWantToRead.includes(bookId.toString())) {
+                setbookWantToRead(true);
+            }
+    
+            if(booksWantToOwn.includes(bookId.toString())) {
+                setbookWantToOwn(true);
+            }        
+        }
+    });
+
     const navigateToBook = () => {
         setRedirect(true);
     }
@@ -20,34 +47,13 @@ const BookCard = (props) => {
         return (<Redirect push to={`/books/${bookId}`}/>)
     }
 
-    if(activeUser) {
-        const booksOwned = activeUser.booksOwned.split(',');
-        const booksRead = activeUser.booksRead.split(',');
-        const booksWantToRead = activeUser.booksWantToRead.split(',');
-        const booksWantToOwn = activeUser.booksWantToOwn.split(',');
-
-        if(booksOwned.includes(bookId)) {
-            setbookOwned(true);
-        }
-
-        if(booksRead.includes(bookId)) {
-            setbookRead(true);
-        }
-
-        if(booksWantToRead.includes(bookId)) {
-            setbookWantToRead(true);
-        }
-
-        if(booksWantToOwn.includes(bookId)) {
-            setbookWantToOwn(true);
-        }        
-    }
+    
 
     const checkboxs =  <Form>
-            <Form.Check type='checkbox' id='books-owned' checked={bookOwned} label='ספרים שברשותי'/>
-            <Form.Check type='checkbox' id='books-read' checked={bookRead} label='ספרים שקראתי'/>
-            <Form.Check type='checkbox' id='books-want-to-read' checked={bookWantToRead} label='ספרים שברצוני לקרוא'/>
-            <Form.Check type='checkbox' id='books-want-to-own' checked={bookWantToOwn} label='ספרים שברצוני לרכוש'/>
+            <Form.Check type='checkbox' id='books-owned' checked={bookOwned} onChange={(e) => setbookOwned(e.target.value)} label='ברשותי'/>
+            <Form.Check type='checkbox' id='books-read' checked={bookRead} onChange={(e) => setbookRead(e.target.value)} label='קראתי'/>
+            <Form.Check type='checkbox' id='books-want-to-read' checked={bookWantToRead} onChange={(e) => setbookWantToRead(e.target.value)} disabled={bookRead} label='ברצוני לקרוא'/>
+            <Form.Check type='checkbox' id='books-want-to-own' checked={bookWantToOwn} onChange={(e) => setbookWantToOwn(e.target.value)} disabled={bookOwned} label='ברצוני לרכוש'/>
             {/* <Form.Check type='checkbox' id='books-loaned' checked={bookLoaned} label='ספרים שהשאלתי'/> */}
         </Form>;
 
