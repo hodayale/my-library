@@ -2,15 +2,10 @@ import { Container, Jumbotron, Row } from "react-bootstrap";
 import BookCard from "../components/BookCard";
 
 const HomePage = (props) => {
-    const {books, filter} = props;
-   const booksCards = books.map((book) => {
-       if(book.id % 3 === 0){
-           return(
-                <BookCard block key={book.id} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-           )
-       } 
-        return <BookCard key={book.id} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-    })
+    const {activeUser, books, filter} = props;
+    const booksCards = books.map((book) => {
+        return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
+        })
     
     return(
         <Container>

@@ -78,8 +78,9 @@ const MyLibraryNavbar = (props) => {
                 {loginEl}
                 {logoutEl}
                 {signupEl}
+                {userName}
             </Nav>
-            {userName}
+            
 
             <Modal show={show} backdrop="static" keyboard={false} centered>
                 <Modal.Header className="justify-content-center">

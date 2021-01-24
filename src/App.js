@@ -14,7 +14,19 @@ import usersJSON from './data/users.json';
 import booksJSON from './data/books.json';
 
 function App() {
-  const [activeUser, setactiveUser] = React.useState(null);
+  const [activeUser, setactiveUser] = React.useState({
+                                      id: 1,
+                                      fname: "הודיה",
+                                      lname: "לוי",
+                                      email: "hodayale@gmail.com",
+                                      password: "hodi1234",
+                                      phone: "",
+                                      booksOwned: "1,2,3,4,5,6",
+                                      booksRead: "1,2,3",
+                                      booksWantToRead: "4,5,6",
+                                      booksWantToOwn: "",
+                                      booksLoaned: "6"
+                                    });
   const [allBooks, setallBooks] = React.useState(booksJSON);
   const [filter, setfilter] = React.useState('');
 
@@ -38,13 +50,13 @@ function App() {
       <Container>
         <Switch>
           <Route exact path="/">
-            <HomePage books={allBooks} filter={filter}/>
+            <HomePage activeUser={activeUser} books={allBooks} filter={filter} />
           </Route>
           <Route exact path="/signup">
             <SignupPage activeUser={activeUser}/>
           </Route>
           <Route exact path="/books">
-            <BooksPage activeUser={activeUser}/>
+            <BooksPage activeUser={activeUser} books={allBooks} filter={filter}/>
           </Route>
           <Route exact path="/books/:bookId">
             <BookDetailsPage activeUser={activeUser}/>
