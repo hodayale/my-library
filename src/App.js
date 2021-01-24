@@ -10,10 +10,17 @@ import HomePage from './pages/HomePage';
 import SignupPage from './pages/SinupPage';
 import logo from './icons/love-book.svg';
 import React from 'react';
-import users from './data/users.json';
+import usersJSON from './data/users.json';
+import booksJSON from './data/books.json';
 
 function App() {
   const [activeUser, setactiveUser] = React.useState(null);
+  const [allBooks, setallBooks] = React.useState(booksJSON);
+  const [filter, setfilter] = React.useState('');
+
+  const handleFilter = (e) => {
+    setfilter(e.target.value);
+  }
 
   const handleLogin = (userObj) => {
     setactiveUser(userObj);
@@ -26,12 +33,12 @@ function App() {
   return (
     <HashRouter>
       <Route exact path={['/', '/books', '/addBook']}>
-        <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={users} handleLogin={handleLogin}/>
+        <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
       </Route>
       <Container>
         <Switch>
           <Route exact path="/">
-            <HomePage/>
+            <HomePage books={allBooks} filter={filter}/>
           </Route>
           <Route exact path="/signup">
             <SignupPage activeUser={activeUser}/>

@@ -41,3 +41,22 @@
 .logo-design {
   font-family: 'Guttman Yad-Brush';
 }
+
+.jumbotron {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: .3rem;
+}
+
+.card-design {
+  margin-right: 30px;
+}
+
+/* .card-columns {
+  column-count: 3;
+  grid-column-gap: 1.25rem;
+  column-gap: 1.25rem;
+  orphans: 1;
+  widows: 1;
+} */

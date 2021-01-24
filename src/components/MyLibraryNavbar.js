@@ -6,13 +6,14 @@ import './MyLibraryNavbar.css';
 import { Redirect } from 'react-router-dom';
 
 const MyLibraryNavbar = (props) => {
-    const {logo, activeUser, handleLogout, users, handleLogin} = props;
+    const {logo, activeUser, handleLogout, users, handleLogin, handleFilter} = props;
     const [show, setShow] = React.useState(false);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
     const [redirect, setRedirect] = React.useState(false);
+    
 
     //const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -54,20 +55,18 @@ const MyLibraryNavbar = (props) => {
     return (
         <Navbar bg="light" variant="light" expand="lg">
             <Navbar.Brand className="logo-design text-danger brand-design" href="#/">
-            <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>   
-                הספריה שלי 
+                <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>   
                 {' '}
-                {/* <IoIosBook />  */}
-                             
+                הספריה שלי 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
                     <Form>
                         <InputGroup>
-                            <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" width="500"/>
-                            <InputGroup.Text >
-                                    <FcSearch/>
+                            <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" width="500" onChange={handleFilter}/>
+                            <InputGroup.Text>
+                                    <FcSearch />
                             </InputGroup.Text>
                         </InputGroup>
                     </Form>
