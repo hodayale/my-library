@@ -22,51 +22,8 @@ const BooksPage = (props) => {
             }
             return "";
         }));
-    }    
-
-    const handleReadBooks = () => {
-        const booksRead = activeUser.booksRead.split(','); 
+    } 
     
-        setbooksToShow(booksRead.map((id) => {
-            const book = books.filter(book => book.id == id);
-            if (book.length > 0) {
-                return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-            }
-            return "";
-        }));
-    }
-    
-
-    const booksWantToRead = activeUser.booksWantToRead.split(','); 
-    
-    const booksWantToReadCards = booksWantToRead.map((id) => {
-        const book = books.filter(book => book.id === id);
-        if (book.length > 0) {
-            return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-        }
-        return "";
-    });
-
-    const booksWantToOwn = activeUser.booksWantToOwn.split(','); 
-    
-    const booksWantToOwnCards = booksWantToOwn.map((id) => {
-        const book = books.filter(book => book.id === id);
-        if (book.length > 0) {
-            return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-        }
-        return "";
-    });
-
-    const booksLoaned = activeUser.booksLoaned.split(','); 
-    
-    const booksLoanedCards = booksLoaned.map((id) => {
-        const book = books.filter(book => book.id === id);
-        if (book.length > 0) {
-            return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}/>
-        }
-        return "";
-    });
-
     return(
        <Tab.Container defaultActiveKey="#link1">
             <Row>
