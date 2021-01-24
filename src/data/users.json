@@ -1,0 +1,18 @@
+[
+    {
+        "id": 1,
+        "fname": "הודיה",
+        "lname": "לוי",
+        "email": "hodayale@gmail.com",
+        "password": "hodi1234",
+        "phone": ""
+    },
+    {
+        "id": 2,
+        "fname": "שרה",
+        "lname": "כהן",
+        "email": "sarac@gmail.com",
+        "password": "1234",
+        "phone": ""
+    }
+]

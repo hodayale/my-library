@@ -9,12 +9,24 @@ import BooksPage from './pages/BooksPage';
 import HomePage from './pages/HomePage';
 import SignupPage from './pages/SinupPage';
 import logo from './icons/love-book.svg';
+import React from 'react';
+import users from './data/users.json';
 
 function App() {
+  const [activeUser, setactiveUser] = React.useState(null);
+
+  const handleLogin = (userObj) => {
+    setactiveUser(userObj);
+  }
+
+  const handleLogout = () => {
+    setactiveUser(null);
+  }
+
   return (
     <HashRouter>
       <Route exact path={['/', '/books', '/addBook']}>
-        <MyLibraryNavbar logo={logo}/>
+        <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={users} handleLogin={handleLogin}/>
       </Route>
       <Container>
         <Switch>
@@ -22,16 +34,16 @@ function App() {
             <HomePage/>
           </Route>
           <Route exact path="/signup">
-            <SignupPage/>
+            <SignupPage activeUser={activeUser}/>
           </Route>
           <Route exact path="/books">
-            <BooksPage/>
+            <BooksPage activeUser={activeUser}/>
           </Route>
           <Route exact path="/books/:bookId">
-            <BookDetailsPage/>
+            <BookDetailsPage activeUser={activeUser}/>
           </Route>
           <Route exact path="/addBook">
-            <AddBookPage/>
+            <AddBookPage activeUser={activeUser}/>
           </Route>
         </Switch>
       </Container>
