@@ -5,12 +5,7 @@
         "lname": "לוי",
         "email": "hodayale@gmail.com",
         "password": "hodi1234",
-        "phone": "",
-        "booksOwned": "1,2,3,4,5,6",
-        "booksRead": "1,2,3",
-        "booksWantToRead": "4,5,6",
-        "booksWantToOwn": "",
-        "booksLoaned": "6"
+        "phone": ""
     },
     {
         "id": 2,
@@ -18,11 +13,6 @@
         "lname": "כהן",
         "email": "sarac@gmail.com",
         "password": "1234",
-        "phone": "",
-        "booksOwned": "1,2,5,6",
-        "booksRead": "1,2",
-        "booksWantToRead": "5,6",
-        "booksWantToOwn": "3,4",
-        "booksLoaned": "1"
+        "phone": ""
     }
 ]
