@@ -20,12 +20,23 @@ class BooksPage extends React.Component {
 
     handleChangeActive = (bookArr, activeStr) => {
         const allBooks = bookArr.filter(b => this.props.activeUser.id === b.userId);
-        
         const bookCards = allBooks.map((b) => {
                     const book = this.props.books.filter(book => book.id == b.bookId);
                     if (book.length > 0) {
-                        return <BookCard key={book.id} activeUser={this.props.activeUser} filter={this.props.filter} bookId={book[0].id} 
+                        //get if book Owned
+                        const bookOwned = this.props.booksOwned.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
+                        //get if book read
+                        const bookRead = this.props.booksRead.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
+                        //get if book want to own
+                        const bookWantToOwn = this.props.booksWantToOwn.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
+                        //get if book want to read
+                        const bookWantToRead = this.props.booksWantToRead.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
+                        //get if book loaned
+                        const bookLoaned = this.props.booksLoaned.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
+                        return <BookCard key={book[0].id} activeUser={this.props.activeUser} filter={this.props.filter} bookId={book[0].id} 
                                 bookName={book[0].bookName} bookAuther={book[0].auther} bookPicture={book[0].bookCover}
+                                bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} bookWantToOwn={bookWantToOwn}
+                                bookLoaned={bookLoaned}
                                 active={this.state.active}/>
                     }
                     return "";

@@ -8,11 +8,11 @@ class BookCard extends React.Component{
         super(props);
         this.state = {
             redirect: false,
-            bookOwned: false,
-            bookRead: false,
-            bookWantToRead: false,
-            bookWantToOwn: false,
-            bookLoaned: false,
+            bookOwned: this.props.bookOwned,
+            bookRead: this.props.bookRead,
+            bookWantToRead: this.props.bookWantToRead,
+            bookWantToOwn: this.props.bookWantToOwn,
+            bookLoaned: this.props.bookLoaned
         }
     }
 
