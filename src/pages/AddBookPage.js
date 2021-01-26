@@ -18,15 +18,11 @@ const AddBookPage = (props) => {
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [show, setShow] = React.useState(false);
 
-    const months = [1,2,3,4,5,6,7,8,9,10,11,12].map((month) => <option key={month}>{month}</option>);
+    const months = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"].map((month, index) => <option key={index}>{month}</option>);
     let years = [];
     for(let i=new Date().getFullYear(); i>1900 ; i--)
     {
         years.push(<option key={i}>{i}</option>)
-    }
-
-    const handleLoadImage = () => {
-        //Load image here
     }
 
     const handleAddBook = (event) => {
@@ -60,7 +56,7 @@ const AddBookPage = (props) => {
                     bookName: bookName,
                     auther: bookAuther,
                     publisher: bookPublisher,
-                    publishDate: bookPublishDateMonth + '/' + bookPublishDateYear,
+                    publishDate: bookPublishDateMonth + ' ' + bookPublishDateYear,
                     category: bookCategory,
                     numPages: bookNumPages,
                     bookCover: bookCover,
@@ -121,19 +117,19 @@ const AddBookPage = (props) => {
                                     <Col sm={6}>
                                         <Form.Group controlId="formBookPublisherDate">
                                             <Form.Label>תאריך ההוצאה</Form.Label>                                    
-                                            <Form.Control className="input-rounded-corners" as="select" onChange={(e) => {setbookPublishDateYear(e.target.value)}} value={bookPublishDateYear}>
-                                                <option>בחר שנה...</option>
-                                                {years}
-                                            </Form.Control>
+                                            <Form.Control className="input-rounded-corners" as="select" onChange={(e) => {setbookPublishDateMonth(e.target.value)}} value={bookPublishDateMonth}>
+                                                <option>בחר חודש...</option>
+                                                {months}
+                                            </Form.Control> 
                                         </Form.Group>
                                     </Col> 
                                     <Col sm={6}>
                                         <Form.Group>                           
                                             <Form.Label >   </Form.Label>
-                                            <Form.Control className="input-rounded-corners mt-2" as="select" onChange={(e) => {setbookPublishDateMonth(e.target.value)}} value={bookPublishDateMonth}>
-                                                <option>בחר חודש...</option>
-                                                {months}
-                                            </Form.Control> 
+                                            <Form.Control className="input-rounded-corners mt-2" as="select" onChange={(e) => {setbookPublishDateYear(e.target.value)}} value={bookPublishDateYear}>
+                                                <option>בחר שנה...</option>
+                                                {years}
+                                            </Form.Control>
                                         </Form.Group>
                                     </Col>
                                 </Row>
@@ -165,7 +161,7 @@ const AddBookPage = (props) => {
                         <Form.Text className="text-danger">{validateMsg}</Form.Text>
                     </Col>
                     <Col sm={4}>
-                        <Image style={{ width: '18rem'}} src={bookCover} rounded onClick={handleLoadImage}/>
+                        <Image style={{ width: '18rem'}} src={bookCover} rounded/>
                     </Col>
                 </Row>
                 <Form.Group className="justify-content-center">

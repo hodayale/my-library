@@ -1,4 +1,4 @@
-import { Card, Form } from "react-bootstrap";
+import { Button, Card, Form } from "react-bootstrap";
 import React from 'react';
 import { Redirect } from "react-router-dom";
 //import { useEffect } from 'react';
@@ -63,12 +63,13 @@ class BookCard extends React.Component{
         
 
         return(
-            <Card className="card-design bg-light" style={{ width: '18rem', marginBottom: '20px', display: this.props.bookName.includes(this.props.filter) ? "" : "none"}} onDoubleClick={this.navigateToBook}>  
+            <Card className="card-design bg-light" style={{ width: '18rem', marginBottom: '20px', display: this.props.bookName.includes(this.props.filter) ? "" : "none"}}>  
                 <Card.Body>
-                    <Card.Img variant="top" src={this.props.bookPicture} />
-                    <Card.Title className="text-center">{this.props.bookName}</Card.Title>
+                    <Card.Img className="hover-design" variant="top" src={this.props.bookPicture} onClick={this.navigateToBook}/>
+                    <Card.Title className="text-center hover-design" onClick={this.navigateToBook}>{this.props.bookName}</Card.Title>
                     <Card.Text className="text-center">{this.props.bookAuther}</Card.Text>
                     {this.props.activeUser ? checkboxs : ''}
+                    {/* <Button className="button-rounded-corners bg-danger" type="button" block onClick={this.navigateToBook} variant="danger">לפרטים נוספים</Button> */}
                 </Card.Body>
             </Card>
         );

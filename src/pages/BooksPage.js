@@ -50,7 +50,7 @@ class BooksPage extends React.Component {
 
     render(){
         if(!this.props.activeUser) {
-            return <Redirect push to="/"/>;
+            return <Redirect push to='/'/>;
         }    
 
         return(

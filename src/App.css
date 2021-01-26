@@ -52,3 +52,12 @@
 .card-design {
   margin-right: 30px;
 }
+
+.hover-design:hover {
+  color: #e94c59;
+  cursor: pointer;
+}
+
+.name-of-book-design{
+  color: #e94c59;
+}
