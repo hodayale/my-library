@@ -147,7 +147,7 @@ function App() {
         <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
       </Route>
       <Container>
-        <Switch>
+        {/* <Switch> */}
           <Route exact path="/">
             <HomePage activeUser={activeUser} books={allBooks} filter={filter} />
           </Route>
@@ -163,9 +163,9 @@ function App() {
             <BookDetailsPage activeUser={activeUser}/>
           </Route>
           <Route exact path="/addBook">
-            <AddBookPage activeUser={activeUser}/>
+            <AddBookPage activeUser={activeUser} books={allBooks} addBook={addBook}/>
           </Route>
-        </Switch>
+        {/* </Switch> */}
       </Container>
     </HashRouter>
   );

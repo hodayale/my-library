@@ -1,5 +1,5 @@
 import '../icons/love-book.svg';
-import { Form, FormControl, Nav, Navbar, InputGroup, Modal, Button } from "react-bootstrap";
+import { Form, FormControl, Nav, Navbar, InputGroup, Modal, Button, NavDropdown } from "react-bootstrap";
 import { FcSearch } from 'react-icons/fc';
 import React from 'react';
 import './MyLibraryNavbar.css';
@@ -12,8 +12,21 @@ const MyLibraryNavbar = (props) => {
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
-    const [redirect, setRedirect] = React.useState(false);
+    const [redirectToBooks, setRedirectToBooks] = React.useState(false);
+    const [redirectToAddBook, setRedirectToAddBook] = React.useState(false);
     
+    const handleMyBooks = () => {
+        if(activeUser) {
+            setRedirectToBooks(true);
+        }
+        else{
+            handleShow();
+        }
+    }
+
+    const handleAddBook = () => {
+        setRedirectToAddBook(true);
+    }
 
     //const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -33,7 +46,7 @@ const MyLibraryNavbar = (props) => {
             if(foundUser) {
                 handleLogin(foundUser);
                 setShow(false);
-                setRedirect(true);
+                setRedirectToBooks(true);
             }
             else {
                 setemail('');
@@ -43,14 +56,18 @@ const MyLibraryNavbar = (props) => {
         }
     };
 
-    if(redirect) {
-        return (<Redirect push to="/books"/>)
+    if(redirectToBooks) {
+        return (<Redirect push to='/books'/>);
+    }
+
+    if(redirectToAddBook) {
+        return (<Redirect push to='/addBook'/>);
     }
 
     const loginEl = (!activeUser) ? <Nav.Link onClick={handleShow}>כניסה</Nav.Link> : null;
     const signupEl = (!activeUser) ? <Nav.Link href="#/signup">הרשמה</Nav.Link> : null;
     const logoutEl = (activeUser) ? <Nav.Link onClick={handleLogout}>יציאה</Nav.Link> : null;
-    const userName = (activeUser) ? <Nav>שלום {activeUser.fname} {activeUser.lname}</Nav> : null;
+    const userName = (activeUser) ? <Navbar.Text>שלום {activeUser.fname} {activeUser.lname}</Navbar.Text> : null;
     
     return (
         <Navbar bg="light" variant="light" expand="lg">
@@ -62,9 +79,13 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
+                <NavDropdown title="הספרים" id="basic-nav-dropdown">
+                    <NavDropdown.Item onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
+                    <NavDropdown.Item onClick={handleAddBook}>הוסף ספר</NavDropdown.Item>
+                </NavDropdown>
                     <Form>
                         <InputGroup>
-                            <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" width="500" onChange={handleFilter}/>
+                            <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" onChange={handleFilter}/>
                             <InputGroup.Text>
                                     <FcSearch />
                             </InputGroup.Text>
@@ -73,13 +94,12 @@ const MyLibraryNavbar = (props) => {
                 </Nav>
                 
             </Navbar.Collapse>
-            
-            <Nav className="login-design">  
+            <Navbar.Collapse className="justify-content-end login-design">
                 {loginEl}
                 {logoutEl}
                 {signupEl}
                 {userName}
-            </Nav>
+            </Navbar.Collapse>
             
 
             <Modal show={show} backdrop="static" keyboard={false} centered>
