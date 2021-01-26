@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Container, Form, Image, Row } from "react-bootstrap";
+import { Alert, Button, Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
 
 const AddBookPage = (props) => {
@@ -16,6 +16,7 @@ const AddBookPage = (props) => {
     const [redirect, setRedirect] = React.useState(false);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
+    const [show, setShow] = React.useState(false);
 
     const months = [1,2,3,4,5,6,7,8,9,10,11,12].map((month) => <option key={month}>{month}</option>);
     let years = [];
@@ -66,7 +67,20 @@ const AddBookPage = (props) => {
                     summery: bookSummery
                 }
                 addBook(newBook);
-                setRedirect(true);
+                //showing the modal window of success
+                setShow(true);
+                //clearing the data
+                setbookName('');
+                setbookAuther('');
+                setbookPublisher('');
+                setbookPublishDateMonth("בחר חודש...");
+                setbookPublishDateYear("בחר שנה...");
+                setbookCategory('');
+                setbookNumPages(0);
+                setbookSummery('');
+                setbookCover('');
+                setValidated(false);
+                //setRedirect(true);
             }
         }
     }
@@ -158,6 +172,13 @@ const AddBookPage = (props) => {
                     <Button type="button" className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={handleAddBook}>הוסף ספר</Button>
                 </Form.Group>
             </Form>
+
+            <Modal show={show} backdrop="static" keyboard={false} centered>
+                <Modal.Footer className="justify-content-center">
+                    <p className="text-center">הספר נוסף בהצלחה!</p>
+                    <Button className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={()=>{setShow(false)}}>Close</Button>
+                </Modal.Footer>
+            </Modal>
         </Container>
     );
 }
