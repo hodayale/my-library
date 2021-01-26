@@ -87,7 +87,7 @@ const AddBookPage = (props) => {
                     
     return(
         <Container>
-            <h1>הוסף ספר חדש</h1>
+            <h1 className="text-center name-of-book-design">הוסף ספר חדש</h1>
             <Form noValidate validated={validated}>
                 <Row className="mt-4">
                     <Col sm={8}>
@@ -161,7 +161,9 @@ const AddBookPage = (props) => {
                         <Form.Text className="text-danger">{validateMsg}</Form.Text>
                     </Col>
                     <Col sm={4}>
-                        <Image style={{ width: '18rem'}} src={bookCover} rounded/>
+                        <div className={bookCover === "" ? "image-border" : ""}>
+                            <Image className="image" style={{ width: '18rem'}} src={bookCover}/>
+                        </div>
                     </Col>
                 </Row>
                 <Form.Group className="justify-content-center">

@@ -79,16 +79,16 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
-                <NavDropdown title="הספרים" id="basic-nav-dropdown">
-                    <NavDropdown.Item onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
-                    <NavDropdown.Item onClick={handleAddBook}>הוסף ספר</NavDropdown.Item>
-                </NavDropdown>
+                    <NavDropdown title="הספרים" id="basic-nav-dropdown">
+                        <NavDropdown.Item onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
+                        <NavDropdown.Item onClick={handleAddBook}>הוסף ספר</NavDropdown.Item>
+                    </NavDropdown>
                     <Form>
                         <InputGroup>
                             <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" onChange={handleFilter}/>
-                            <InputGroup.Text>
+                            {/* <InputGroup.Text>
                                     <FcSearch />
-                            </InputGroup.Text>
+                            </InputGroup.Text> */}
                         </InputGroup>
                     </Form>
                 </Nav>

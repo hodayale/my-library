@@ -61,3 +61,15 @@
 .name-of-book-design{
   color: #e94c59;
 }
+
+.image-border {
+  width: 18rem;
+  height: 27rem;
+  border: 1px solid #e94c59;
+  border-radius: 30px;
+  margin-right: 100px;
+}
+
+.image {
+  margin-right: 100px;
+}
