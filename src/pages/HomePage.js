@@ -10,8 +10,8 @@ const HomePage = (props) => {
     return(
         <Container>
             <Jumbotron className="text-center">
-                <h1 className="logo-design">ברוכים הבאים לספריה הביתית שלכם</h1>
-                <p>כאן תוכלו לנהל את הספרים שיש לכם בבית</p>
+                <h1 className="logo-design text-danger">ברוכים הבאים לספריה הביתית שלכם</h1>
+                <h4>כאן תוכלו לנהל את הספרים שיש לכם בבית</h4>
             </Jumbotron>
 
             <Row className="justify-content-even">

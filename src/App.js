@@ -143,11 +143,12 @@ function App() {
 
   return (
     <HashRouter>
-      <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
-        <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
-      </Route>
+      
       <Container>
         {/* <Switch> */}
+          <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
+            <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
+          </Route>
           <Route exact path="/">
             <HomePage activeUser={activeUser} books={allBooks} filter={filter} />
           </Route>

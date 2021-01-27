@@ -70,7 +70,7 @@ const MyLibraryNavbar = (props) => {
     const userName = (activeUser) ? <Navbar.Text>שלום {activeUser.fname} {activeUser.lname}</Navbar.Text> : null;
     
     return (
-        <Navbar bg="light" variant="light" expand="lg">
+        <Navbar bg="white" variant="light" expand="lg">
             <Navbar.Brand className="logo-design text-danger brand-design" href="#/">
                 <img alt="" src={logo} width="30" height="30" className="d-inline-block align-top"/>   
                 {' '}
