@@ -28,8 +28,8 @@ const SignupPage = (props) => {
                 if(!foundUser) {
                     const newUser = {
                         id: users.length + 1,
-                        fName: fName,
-                        lName: lName,
+                        fname: fName,
+                        lname: lName,
                         email: email,
                         password: password
                     }
