@@ -109,7 +109,7 @@ const Checkboxes = (props) => {
     }
     
     return(
-        <Form className="mt-4">
+        <Form>
                 <Form.Check type='checkbox' id='books-owned' checked={owned} onChange={handleChangedOwned} value={owned} label='ברשותי'/>
                 <Form.Check type='checkbox' id='books-read' checked={read} onChange={handleChangedRead} value={read} label='קראתי'/>
                 <Form.Check type='checkbox' id='books-want-to-read' checked={wantToRead} onChange={handleChangedWantToRead} 
