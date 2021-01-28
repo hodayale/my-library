@@ -9,8 +9,8 @@ class BooksPage extends React.Component {
         super(props);
 
         this.state = {
-            bookCardsForActiveUser: [],
-            active: 'owned'
+            active: 'owned',
+            currentBooks: this.props.booksOwned
         }
     }
 
@@ -19,7 +19,20 @@ class BooksPage extends React.Component {
     }
 
     handleChangeActive = (bookArr, activeStr) => {
-        const allBooks = bookArr.filter(b => this.props.activeUser.id === b.userId);
+        if(this.props.activeUser) {
+            this.setState({
+                active: activeStr,
+                currentBooks: bookArr
+            });
+        }
+    }
+
+    render(){
+        if(!this.props.activeUser) {
+            return <Redirect push to='/'/>;
+        }  
+        
+        const allBooks = this.state.currentBooks.filter(b => this.props.activeUser.id === b.userId);
         const bookCards = allBooks.map((b) => {
                     const book = this.props.books.filter(book => book.id == b.bookId);
                     if (book.length > 0) {
@@ -44,18 +57,7 @@ class BooksPage extends React.Component {
                                 removeBookLoaned={this.props.removeBookLoaned} updateBookLoaned={this.props.updateBookLoaned}/>
                     }
                     return "";
-        });
-
-        this.setState({
-            bookCardsForActiveUser: bookCards,
-            active: activeStr
-        });
-    }
-
-    render(){
-        if(!this.props.activeUser) {
-            return <Redirect push to='/'/>;
-        }    
+            });
 
         return(
             <Row className="mt-4">
@@ -76,7 +78,7 @@ class BooksPage extends React.Component {
                     </Col>
                 <Col sm={10}>
                     <Row className="justify-content-even">
-                        {this.state.bookCardsForActiveUser}
+                        {bookCards}
                     </Row>
                 </Col>
             </Row>
