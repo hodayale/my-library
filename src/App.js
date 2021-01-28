@@ -17,6 +17,7 @@ import booksOwnedJSON from './data/booksOwned.json';
 import booksReadJSON from './data/booksRead.json';
 import booksWantToOwnJSON from './data/booksWantToOwn.json';
 import booksWantToReadJSON from './data/booksWantToRead.json';
+import LoginPage from './pages/LoginPage';
 
 function App() {
   const [activeUser, setactiveUser] = React.useState({
@@ -246,8 +247,9 @@ function App() {
       
       <Container>
         {/* <Switch> */}
-          <Route exact path={["/", "/signup", "/books", "/addBook", "/books/:bookId"]}>
-            <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
+          <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
+            <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={allUsers} 
+                              handleLogin={handleLogin} handleFilter={handleFilter} addUser={addUser}/>
           </Route>
           <Route exact path="/">
             <HomePage activeUser={activeUser} books={allBooks} filter={filter} 
@@ -259,9 +261,12 @@ function App() {
                       addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
                       removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
           </Route>
-          <Route exact path="/signup">
+          {/* <Route exact path="/signup">
             <SignupPage activeUser={activeUser}/>
           </Route>
+          <Route exact path="/login">
+            <LoginPage activeUser={activeUser}/>
+          </Route> */}
           <Route exact path="/books">
             <BooksPage activeUser={activeUser} books={allBooks} filter={filter} 
                         booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 

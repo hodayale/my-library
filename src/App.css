@@ -73,3 +73,13 @@
 .image {
   margin-right: 100px;
 }
+
+.link-design {
+  color: blue;
+  text-decoration: underline;
+}
+
+.link-design:hover {
+  color: #e94c59;
+  cursor: pointer;
+}

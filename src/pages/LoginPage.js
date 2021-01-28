@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 
 const LoginPage = (props) => {
-    const {users, handleLogin, handlRedirectToBooks} = props;
+    const {users, handleLogin, handlRedirectToBooks, handleShowSignup, handleCloseLogin} = props;
     const [show, setShow] = React.useState(true);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
@@ -28,6 +28,7 @@ const LoginPage = (props) => {
             if(foundUser) {
                 handleLogin(foundUser);
                 setShow(false);
+                handleCloseLogin();
                 handlRedirectToBooks();
             }
             else {
@@ -47,12 +48,12 @@ const LoginPage = (props) => {
                 <Form noValidate validated={validated}>
                     <Form.Group controlId="formBasicEmail">
                         <Form.Label>* כתובת דואר אלקטרוני</Form.Label>
-                        <Form.Control className="input-rounded-corners text-right" required type="email" placeholder="כתובת דואר אלקטרוני"
+                        <Form.Control className="input-rounded-corners text-right" required type="email" 
                                     onChange={(e) => {setemail(e.target.value); setvalidateMsg('');}} value={email}/>
                     </Form.Group>
                     <Form.Group controlId="formBasicPassword">
                         <Form.Label>* סיסמה</Form.Label>
-                        <Form.Control className="input-rounded-corners" required type="password" placeholder="סיסמה"
+                        <Form.Control className="input-rounded-corners" required type="password" 
                                     onChange={(e) => {setpassword(e.target.value); setvalidateMsg('');}} value={password}/>
                     </Form.Group>
                     <Form.Text className="text-danger">{validateMsg}</Form.Text>
@@ -62,7 +63,7 @@ const LoginPage = (props) => {
                 <Button className="button-rounded-corners bg-danger" type="button" block onClick={handleSubmit} variant="danger">כניסה</Button>
                 <Form.Text className="text-muted">
                 לא רשום עדיין? 
-                <span><a href="#/signup" onClick={() => setShow(false)}> לחץ כאן </a></span>
+                <span className="link-design" onClick={() => {setShow(false); handleCloseLogin(); handleShowSignup();}}> לחץ כאן </span>
                 </Form.Text>
             </Modal.Footer>
         </Modal>
