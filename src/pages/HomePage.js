@@ -30,16 +30,16 @@ const HomePage = (props) => {
         })
     
     return(
-        <Container>
+        <div>
             <Jumbotron className="text-center">
                 <h1 className="logo-design text-danger">ברוכים הבאים לספריה הביתית שלכם</h1>
                 <h4>כאן תוכלו לנהל את הספרים שיש לכם בבית</h4>
             </Jumbotron>
 
-            <Row className="justify-content-even">
+            <Row className="justify-content-center">
                 {booksCards}
             </Row>
-        </Container>
+        </div>
     );
 }
 

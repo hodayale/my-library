@@ -61,8 +61,8 @@ class BooksPage extends React.Component {
 
         return(
             <Row className="mt-4">
-                <Col sm={2}>
-                    <ListGroup>
+                <Col sm={2} >
+                    <ListGroup className="list-grout-design">
                         <ListGroup.Item className={this.state.active === 'owned' ? "active" : ""}
                                         action onClick={() => this.handleChangeActive(this.props.booksOwned, 'owned')}
                                         variant="danger">ספרים שברשותי</ListGroup.Item>

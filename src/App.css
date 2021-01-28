@@ -37,16 +37,20 @@
   }
 }
 
+body{
+  background-color:  #faf0f1;
+}
 
 .logo-design {
   font-family: 'Guttman Yad-Brush';
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
+  padding: 5rem 1rem;
   margin-bottom: 2rem;
   background-color: #f8d7da;
   border-radius: .3rem;
+  /* background-image: url("https://openscholar.huji.ac.il/sites/default/files/styles/os_files_xxlarge/public/library/files/spryh_dp_rshy.png?m=1538923396&itok=1LUWiD7D");  */
 }
 
 .card-design {
@@ -82,4 +86,8 @@
 .link-design:hover {
   color: #e94c59;
   cursor: pointer;
+}
+
+.list-grout-design {
+  margin-right: 20px;
 }
