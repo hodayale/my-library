@@ -18,16 +18,16 @@ import booksWantToOwnJSON from './data/booksWantToOwn.json';
 import booksWantToReadJSON from './data/booksWantToRead.json';
 
 function App() {
-  const [activeUser, setactiveUser] = React.useState({
-                                      id: 1,
-                                      fname: "הודיה",
-                                      lname: "לוי",
-                                      email: "hodayale@gmail.com",
-                                      password: "hodi1234",
-                                      phone: ""
-                                    });
+  // const [activeUser, setactiveUser] = React.useState({
+  //                                     id: 1,
+  //                                     fname: "הודיה",
+  //                                     lname: "לוי",
+  //                                     email: "hodayale@gmail.com",
+  //                                     password: "hodi1234",
+  //                                     phone: ""
+  //                                   });
 
-  //const [activeUser, setactiveUser] = React.useState(null);
+  const [activeUser, setactiveUser] = React.useState(null);
   
   const [filter, setfilter] = React.useState('');
   const [results, setResults] = React.useState([]);

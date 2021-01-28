@@ -50,7 +50,33 @@ body{
   margin-bottom: 2rem;
   background-color: #f8d7da;
   border-radius: .3rem;
+  position: relative;
+  overflow: hidden;
   /* background-image: url("https://openscholar.huji.ac.il/sites/default/files/styles/os_files_xxlarge/public/library/files/spryh_dp_rshy.png?m=1538923396&itok=1LUWiD7D");  */
+}
+
+.jumbotron h1 {
+  position: relative;
+  z-index: 2;
+}
+
+.jumbotron p {
+  position: relative;
+  z-index: 2;
+}
+
+.jumbotron::after {
+  content: "";
+  background: url("./icons/books.jpg");
+  opacity: 0.4;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  display: block;
+  position: absolute;
+  z-index: 1;   
+
 }
 
 .card-design {
