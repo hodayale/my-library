@@ -2,7 +2,7 @@ import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import React from 'react';
 
 const SignupPage = (props) => {
-    const {users, handleLogin, handlRedirectToBooks, handleCloseSignup, addUser} = props;
+    const {users, handleLogin, handleCloseSignup, addUser} = props;
     const [show, setShow] = React.useState(true);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
@@ -37,7 +37,6 @@ const SignupPage = (props) => {
                     handleLogin(newUser);
                     setShow(false);
                     handleCloseSignup(newUser);
-                    //handlRedirectToBooks();
                 }
                 else {
                     setvalidateMsg("משתמש כבר רשום במערכת!");

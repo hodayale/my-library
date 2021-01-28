@@ -30,6 +30,7 @@ function App() {
   //const [activeUser, setactiveUser] = React.useState(null);
   
   const [filter, setfilter] = React.useState('');
+  const [results, setResults] = React.useState([]);
 
   // All Books state
   //***********************************************
@@ -242,11 +243,28 @@ function App() {
     }
   }
 
+  const searchBook = (searchText) => {
+    if(!searchText) {
+        setResults([]);
+        return;
+    }
+    const booksFound = allBooks.filter(book => book.bookName.includes(searchText)/* || book.auther.includes(searchText)*/)
+                              .map((item) => {return {name: item.bookName, id: item.id}});
+    setResults(booksFound);
+  }
+
+  const showSearchResults = (index) => {
+      const book = results[index];
+      window.location = `#/books/${book.id}`;
+      setResults([]);
+  }
+
   return (
     <HashRouter >
     <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
             <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={allUsers} 
-                              handleLogin={handleLogin} handleFilter={handleFilter} addUser={addUser}/>
+                              handleLogin={handleLogin} handleFilter={handleFilter} addUser={addUser}
+                              results={results} searchBook={searchBook} showSearchResults={showSearchResults}/>
           </Route>
       {/* <Container > */}
         {/* <Switch> */}

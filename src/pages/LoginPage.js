@@ -2,7 +2,7 @@ import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
 
 const LoginPage = (props) => {
-    const {users, handleLogin, handlRedirectToBooks, handleShowSignup, handleCloseLogin} = props;
+    const {users, handleLogin, handleShowSignup, handleCloseLogin} = props;
     const [show, setShow] = React.useState(true);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
@@ -29,7 +29,7 @@ const LoginPage = (props) => {
                 handleLogin(foundUser);
                 setShow(false);
                 handleCloseLogin();
-                handlRedirectToBooks();
+                //handlRedirectToBooks();
             }
             else {
                 setemail('');

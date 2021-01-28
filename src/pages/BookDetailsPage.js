@@ -14,27 +14,30 @@ const BookDetailsPage = (props) => {
     //get book details by ID
     const selectedBook = books.find((item) => {return item.id == bookId});
 
-    //get if book Owned
-    const bookOwned = booksOwned.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
-    //get if book read
-    const bookRead = booksRead.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
-    //get if book want to own
-    const bookWantToOwn = booksWantToOwn.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
-    //get if book want to read
-    const bookWantToRead = booksWantToRead.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
-    //get if book loaned
-    const bookLoaned = booksLoaned.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
+    let checkboxs = "";
+    if(activeUser){
+        //get if book Owned
+        const bookOwned = booksOwned.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
+        //get if book read
+        const bookRead = booksRead.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
+        //get if book want to own
+        const bookWantToOwn = booksWantToOwn.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
+        //get if book want to read
+        const bookWantToRead = booksWantToRead.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
+        //get if book loaned
+        const bookLoaned = booksLoaned.filter(item => (item.userId === activeUser.id && item.bookId == bookId)).length > 0;
 
-    const bookLoanerName = bookLoaned ? booksLoaned.find(item => {return (item.userId === activeUser.id && item.bookId == bookId)}).nameOfLoaner : "";
+        const bookLoanerName = bookLoaned ? booksLoaned.find(item => {return (item.userId === activeUser.id && item.bookId == bookId)}).nameOfLoaner : "";
 
-    const checkboxs = <Checkboxes bookId={bookId} userId={activeUser.id}
-                                  bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} 
-                                  bookWantToOwn={bookWantToOwn} bookLoaned={bookLoaned} bookLoanerName={bookLoanerName} showLoaned={true}
-                                  addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
-                                  addBookRead={addBookRead} removeBookRead={removeBookRead}
-                                  addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
-                                  addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
-                                  removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/> ;
+        checkboxs = <Checkboxes bookId={bookId} userId={activeUser.id}
+                                    bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} 
+                                    bookWantToOwn={bookWantToOwn} bookLoaned={bookLoaned} bookLoanerName={bookLoanerName} showLoaned={true}
+                                    addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
+                                    addBookRead={addBookRead} removeBookRead={removeBookRead}
+                                    addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
+                                    addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
+                                    removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/> ;
+    }
     
 
     return(

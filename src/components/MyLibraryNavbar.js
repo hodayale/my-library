@@ -6,21 +6,25 @@ import './MyLibraryNavbar.css';
 import { Redirect } from 'react-router-dom';
 import LoginPage from '../pages/LoginPage';
 import SignupPage from '../pages/SinupPage';
+import LiveSearchBox from './LiveSearchBox';
 
 const MyLibraryNavbar = (props) => {
-    const {logo, activeUser, handleLogout, users, handleLogin, handleFilter, addUser} = props;
-    const [redirectToBooks, setRedirectToBooks] = React.useState(false);
-    const [redirectToAddBook, setRedirectToAddBook] = React.useState(false);
+    const {logo, activeUser, handleLogout, users, handleLogin, handleFilter, addUser, results, searchBook, showSearchResults} = props;
+    // const [redirectToBooks, setRedirectToBooks] = React.useState(false);
+    // const [redirectToAddBook, setRedirectToAddBook] = React.useState(false);
     const [showLogin, setShowLogin] = React.useState(false);
     const [showSignup, setShowSignup] = React.useState(false);
     
     const handleMyBooks = () => {
-        if(activeUser) {
-            setRedirectToBooks(true);
-        }
-        else{
+        if(!activeUser){
             handleShowLogin();
         }
+        // if(activeUser) {
+        //     setRedirectToBooks(true);
+        // }
+        // else{
+        //     handleShowLogin();
+        // }
     }
 
     const handleShowLogin = () => {
@@ -42,21 +46,21 @@ const MyLibraryNavbar = (props) => {
         setShowSignup(false);
     }
 
-    const handlRedirectToBooks = () => {
-        setRedirectToBooks(true);
-    }
+    // const handlRedirectToBooks = () => {
+    //     setRedirectToBooks(true);
+    // }
 
-    const handleAddBook = () => {
-        setRedirectToAddBook(true);
-    }
+    // const handleAddBook = () => {
+    //     setRedirectToAddBook(true);
+    // }
 
-    if(redirectToBooks) {
-        return (<Redirect push to='/books'/>);
-    }
+    // if(redirectToBooks) {
+    //     return (<Redirect push to='/books'/>);
+    // }
 
-    if(redirectToAddBook) {
-        return (<Redirect push to='/addBook'/>);
-    }
+    // if(redirectToAddBook) {
+    //     return (<Redirect push to='/addBook'/>);
+    // }
 
     const loginEl = (!activeUser) ? <Nav.Link onClick={handleShowLogin}>כניסה</Nav.Link> : null;
     const signupEl = (!activeUser) ? <Nav.Link onClick={handleShowSignup}>הרשמה</Nav.Link> : null;
@@ -74,12 +78,14 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
                     <NavDropdown title="הספרים" id="basic-nav-dropdown">
-                        <NavDropdown.Item onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
-                        <NavDropdown.Item onClick={handleAddBook}>הוסף ספר</NavDropdown.Item>
+                        <NavDropdown.Item href="#/books" onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
+                        <NavDropdown.Item href="#/addBook">הוסף ספר</NavDropdown.Item>
                     </NavDropdown>
                     <Form>
                         <InputGroup>
-                            <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" onChange={handleFilter}/>
+                            <LiveSearchBox placeholderText="חפש ספר" results={results}
+                                            searchTextChanged={searchBook} resultSelected={showSearchResults}/>
+                            {/* <Form.Control className="search-book-design" type="text" placeholder="חפש ספר" onChange={handleFilter}/> */}
                             {/* <InputGroup.Text>
                                     <FcSearch />
                             </InputGroup.Text> */}
@@ -95,8 +101,8 @@ const MyLibraryNavbar = (props) => {
                 {userName}
             </Navbar.Collapse>
             
-            {showLogin ? <LoginPage users={users} handleLogin={handleLogin} handlRedirectToBooks={handlRedirectToBooks} handleShowSignup={handleShowSignup} handleCloseLogin={handleCloseLogin}/> : ""}
-            {showSignup ? <SignupPage users={users} handleLogin={handleLogin} handlRedirectToBooks={handlRedirectToBooks} handleCloseSignup={handleCloseSignup} addUser={addUser}/> : ""}
+            {showLogin ? <LoginPage users={users} handleLogin={handleLogin} handleShowSignup={handleShowSignup} handleCloseLogin={handleCloseLogin}/> : ""}
+            {showSignup ? <SignupPage users={users} handleLogin={handleLogin} handleCloseSignup={handleCloseSignup} addUser={addUser}/> : ""}
         </Navbar>
     );
 }
