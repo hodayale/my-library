@@ -37,7 +37,11 @@ class BooksPage extends React.Component {
                                 bookName={book[0].bookName} bookAuther={book[0].auther} bookPicture={book[0].bookCover}
                                 bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} bookWantToOwn={bookWantToOwn}
                                 bookLoaned={bookLoaned}
-                                active={this.state.active}/>
+                                addBookOwned={this.props.addBookOwned} removeBookOwned={this.props.removeBookOwned}
+                                addBookRead={this.props.addBookRead} removeBookRead={this.props.removeBookRead}
+                                addBookWantToRead={this.props.addBookWantToRead} removeBookWantToRead={this.props.removeBookWantToRead}
+                                addBookWantToOwn={this.props.addBookWantToOwn} removeBookWantToOwn={this.props.removeBookWantToOwn}
+                                removeBookLoaned={this.props.removeBookLoaned} updateBookLoaned={this.props.updateBookLoaned}/>
                     }
                     return "";
         });

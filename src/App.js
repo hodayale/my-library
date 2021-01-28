@@ -25,12 +25,7 @@ function App() {
                                       lname: "לוי",
                                       email: "hodayale@gmail.com",
                                       password: "hodi1234",
-                                      phone: "",
-                                      booksOwned: "1,2,3,5,6",
-                                      booksRead: "1,2,3",
-                                      booksWantToRead: "4,5,6",
-                                      booksWantToOwn: "4",
-                                      booksLoaned: "6"
+                                      phone: ""
                                     });
   
   const [filter, setfilter] = React.useState('');
@@ -130,10 +125,12 @@ function App() {
 
   const updateBook = (bookObj) => {
     let objIndex = allBooks.findIndex((obj => obj.id == bookObj.id));
-    let books = [...allBooks];  //shallow copy of allBooks
-    books[objIndex] = bookObj;
-    setallBooks(books);
-    localStorage.setItem('booksJSON', JSON.stringify(books));
+    if(objIndex !== -1){
+      let books = [...allBooks];  //shallow copy of allBooks
+      books[objIndex] = bookObj;
+      setallBooks(books);
+      localStorage.setItem('booksJSON', JSON.stringify(books));
+    }
   }
 
   const addUser = (userObj) => {
@@ -141,16 +138,126 @@ function App() {
     localStorage.setItem('usersJSON', JSON.stringify(allUsers.concat(userObj)));
   }
 
+  const addBookOwned = (bookOwnObj) => {
+    let objIndex = allBooksOwned.findIndex((obj => (obj.bookId == bookOwnObj.bookId && obj.userId == bookOwnObj.userId)));
+    if(objIndex === -1){
+      setallBooksOwned(allBooksOwned.concat(bookOwnObj));
+      localStorage.setItem('booksOwnedJSON', JSON.stringify(allBooksOwned.concat(bookOwnObj)));
+    }
+  }
+
+  const removeBookOwned = (bookOwnObj) => {
+    let objIndex = allBooksOwned.findIndex((obj => (obj.bookId == bookOwnObj.bookId && obj.userId == bookOwnObj.userId)));
+    if(objIndex !== -1){
+      let booksOwned = [...allBooksOwned];  //shallow copy
+      booksOwned.splice(objIndex, 1);
+      setallBooksOwned(booksOwned);
+      localStorage.setItem('booksOwnedJSON', JSON.stringify(booksOwned));
+    }
+  }
+
+  const addBookRead = (bookReadObj) => {
+    let objIndex = allBooksRead.findIndex((obj => (obj.bookId == bookReadObj.bookId && obj.userId == bookReadObj.userId)));
+    if(objIndex === -1){
+      setallBooksRead(allBooksRead.concat(bookReadObj));
+      localStorage.setItem('booksReadJSON', JSON.stringify(allBooksRead.concat(bookReadObj)));
+    }
+  }
+
+  const removeBookRead = (bookReadObj) => {
+    let objIndex = allBooksRead.findIndex((obj => (obj.bookId == bookReadObj.bookId && obj.userId == bookReadObj.userId)));
+    if(objIndex !== -1){
+      let booksRead = [...allBooksRead];  //shallow copy
+      booksRead.splice(objIndex, 1);
+      setallBooksRead(booksRead);
+      localStorage.setItem('booksReadJSON', JSON.stringify(booksRead));
+    }
+  }
+
+  const addBookWantToRead = (bookReadObj) => {
+    let objIndex = allBooksWantToRead.findIndex((obj => (obj.bookId == bookReadObj.bookId && obj.userId == bookReadObj.userId)));
+    if(objIndex === -1){
+      setallBooksWantToRead(allBooksWantToRead.concat(bookReadObj));
+      localStorage.setItem('booksWantToReadJSON', JSON.stringify(allBooksWantToRead.concat(bookReadObj)));
+    }
+  }
+
+  const removeBookWantToRead = (bookReadObj) => {
+    let objIndex = allBooksWantToRead.findIndex((obj => (obj.bookId == bookReadObj.bookId && obj.userId == bookReadObj.userId)));
+    if(objIndex !== -1){
+      let booksWantToRead = [...allBooksWantToRead];  //shallow copy
+      booksWantToRead.splice(objIndex, 1);
+      setallBooksWantToRead(booksRead);
+      localStorage.setItem('booksWantToReadJSON', JSON.stringify(booksWantToRead));
+    }
+  }
+
+  const addBookWantToOwn = (bookOwnObj) => {
+    let objIndex = allBooksWantToOwn.findIndex((obj => (obj.bookId == bookOwnObj.bookId && obj.userId == bookOwnObj.userId)));
+    if(objIndex === -1){
+      
+      setallBooksWantToOwn(allBooksWantToOwn.concat(bookOwnObj));
+      localStorage.setItem('booksWantToOwnJSON', JSON.stringify(allBooksWantToOwn.concat(bookOwnObj)));
+    }
+  }
+
+  const removeBookWantToOwn = (bookOwnObj) => {
+    let objIndex = allBooksWantToOwn.findIndex((obj => (obj.bookId == bookOwnObj.bookId && obj.userId == bookOwnObj.userId)));
+    if(objIndex !== -1){
+      let booksWantToOwn = [...allBooksWantToOwn];  //shallow copy
+      booksWantToOwn.splice(objIndex, 1);
+      setallBooksWantToOwn(booksWantToOwn);
+      localStorage.setItem('booksWantToOwnJSON', JSON.stringify(booksWantToOwn));
+    }
+  }
+
+  const addBookLoaned = (bookLoanObj) => {
+    let objIndex = allBooksLoaned.findIndex((obj => (obj.bookId == bookLoanObj.bookId && obj.userId == bookLoanObj.userId)));
+    if(objIndex === -1){
+      setallBooksLoaned(allBooksLoaned.concat(bookLoanObj));
+      localStorage.setItem('booksLoanedJSON', JSON.stringify(allBooksLoaned.concat(bookLoanObj)));
+    }
+  }
+
+  const removeBookLoaned = (bookLoanObj) => {
+    let objIndex = allBooksLoaned.findIndex((obj => (obj.bookId == bookLoanObj.bookId && obj.userId == bookLoanObj.userId)));
+    if(objIndex !== -1){
+      let booksLoaned = [...allBooksLoaned];  //shallow copy
+      booksLoaned.splice(objIndex, 1);
+      setallBooksLoaned(booksLoaned);
+      localStorage.setItem('booksLoanedJSON', JSON.stringify(booksLoaned));
+    }
+  }
+
+  const updateBookLoaned = (bookLoanObj) => {
+    let objIndex = allBooksLoaned.findIndex((obj => (obj.bookId == bookLoanObj.bookId && obj.userId == bookLoanObj.userId)));
+    if(objIndex === -1){
+      addBookLoaned(bookLoanObj)
+    } else {
+      let booksLoaned = [...allBooksLoaned];  //shallow copy
+      booksLoaned[objIndex] = bookLoanObj;
+      setallBooksLoaned(booksLoaned);
+      localStorage.setItem('booksLoanedJSON', JSON.stringify(booksLoaned));
+    }
+  }
+
   return (
     <HashRouter>
       
       <Container>
         {/* <Switch> */}
-          <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
+          <Route exact path={["/", "/signup", "/books", "/addBook", "/books/:bookId"]}>
             <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={usersJSON} handleLogin={handleLogin} handleFilter={handleFilter}/>
           </Route>
           <Route exact path="/">
-            <HomePage activeUser={activeUser} books={allBooks} filter={filter} />
+            <HomePage activeUser={activeUser} books={allBooks} filter={filter} 
+                      booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
+                      booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
+                      addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
+                      addBookRead={addBookRead} removeBookRead={removeBookRead}
+                      addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
+                      addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
+                      removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
           </Route>
           <Route exact path="/signup">
             <SignupPage activeUser={activeUser}/>
@@ -158,10 +265,21 @@ function App() {
           <Route exact path="/books">
             <BooksPage activeUser={activeUser} books={allBooks} filter={filter} 
                         booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
-                        booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}/>
+                        booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
+                        addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
+                        addBookRead={addBookRead} removeBookRead={removeBookRead}
+                        addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
+                        addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
+                        removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
           </Route>
           <Route exact path="/books/:bookId">
-            <BookDetailsPage activeUser={activeUser} books={allBooks}/>
+            <BookDetailsPage activeUser={activeUser} books={allBooks} booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
+                             booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
+                             addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
+                             addBookRead={addBookRead} removeBookRead={removeBookRead}
+                             addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
+                             addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
+                             removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
           </Route>
           <Route exact path="/addBook">
             <AddBookPage activeUser={activeUser} books={allBooks} addBook={addBook}/>

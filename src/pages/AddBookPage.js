@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Button, Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
+import { Button, Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
 
 const AddBookPage = (props) => {

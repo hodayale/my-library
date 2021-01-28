@@ -4,16 +4,13 @@ import { FcSearch } from 'react-icons/fc';
 import React from 'react';
 import './MyLibraryNavbar.css';
 import { Redirect } from 'react-router-dom';
+import LoginPage from '../pages/LoginPage';
 
 const MyLibraryNavbar = (props) => {
     const {logo, activeUser, handleLogout, users, handleLogin, handleFilter} = props;
-    const [show, setShow] = React.useState(false);
-    const [validated, setValidated] = React.useState(false);
-    const [validateMsg, setvalidateMsg] = React.useState('');
-    const [email, setemail] = React.useState('');
-    const [password, setpassword] = React.useState('');
     const [redirectToBooks, setRedirectToBooks] = React.useState(false);
     const [redirectToAddBook, setRedirectToAddBook] = React.useState(false);
+    const [show, setShow] = React.useState(false);
     
     const handleMyBooks = () => {
         if(activeUser) {
@@ -24,37 +21,17 @@ const MyLibraryNavbar = (props) => {
         }
     }
 
+    const handleShow = () => {
+        setShow(true);
+    }
+
+    const handlRedirectToBooks = () => {
+        setRedirectToBooks(true);
+    }
+
     const handleAddBook = () => {
         setRedirectToAddBook(true);
     }
-
-    //const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-    const handleSubmit = (event) => {
-        const form = event.currentTarget;
-        const valid = form.checkValidity();
-        if (valid === false) {
-          event.preventDefault();
-          event.stopPropagation();
-        }
-        setValidated(true);
-
-        if (valid === true){
-            const foundUser = users.find((user) => {
-                return (user.email === email && user.password === password)
-            });
-            if(foundUser) {
-                handleLogin(foundUser);
-                setShow(false);
-                setRedirectToBooks(true);
-            }
-            else {
-                setemail('');
-                setpassword('');
-                setvalidateMsg("משתמש לא נמצא!");
-            }
-        }
-    };
 
     if(redirectToBooks) {
         return (<Redirect push to='/books'/>);
@@ -101,8 +78,8 @@ const MyLibraryNavbar = (props) => {
                 {userName}
             </Navbar.Collapse>
             
-
-            <Modal show={show} backdrop="static" keyboard={false} centered>
+            {show ? <LoginPage users={users} handleLogin={handleLogin} handlRedirectToBooks={handlRedirectToBooks}/> : ""}
+            {/* <Modal show={show} backdrop="static" keyboard={false} centered>
                 <Modal.Header className="justify-content-center">
                     <Modal.Title className="logo-design text-danger">כניסה לספריה שלי</Modal.Title>
                 </Modal.Header>
@@ -125,10 +102,10 @@ const MyLibraryNavbar = (props) => {
                     <Button className="button-rounded-corners bg-danger" type="button" block onClick={handleSubmit} variant="danger">כניסה</Button>
                     <Form.Text className="text-muted">
                     לא רשום עדיין? 
-                    <span><a href="#/signup"> לחץ כאן </a></span>
+                    <span><a href="#/signup" onClick={() => setShow(false)}> לחץ כאן </a></span>
                     </Form.Text>
                 </Modal.Footer>
-            </Modal>
+            </Modal> */}
         </Navbar>
     );
 }
