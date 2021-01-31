@@ -132,3 +132,7 @@ body{
 .text-align-end{
   text-align: end;
 }
+
+.card-footer {
+  border-top: 0px;
+}
