@@ -1,6 +1,7 @@
 import { Col, Form, Jumbotron, Row } from "react-bootstrap";
 import BookCard from "../components/BookCard";
 import React from 'react';
+import { IoIosArrowDown } from 'react-icons/io';
 
 const HomePage = (props) => {
     const {activeUser, books, booksOwned, booksRead, booksWantToRead, 
@@ -62,12 +63,15 @@ const HomePage = (props) => {
                     <Form.Label>מיין</Form.Label>
                 </Col>
                 <Col sm={4}>
-                    <Form.Control as="select" onChange={handlChangeSort} value={sortOption}>
-                        <option>{sortByBookNameAscending}</option>
-                        <option>{sortByBookNameDescending}</option>
-                        <option>{sortByAutherAscending}</option>
-                        <option>{sortByAutherDescending}</option>
-                    </Form.Control>
+                    <Form.Group className="form-group">
+                        <Form.Control className="select" as="select" onChange={handlChangeSort} value={sortOption}>
+                                <option>{sortByBookNameAscending}</option>
+                                <option>{sortByBookNameDescending}</option>
+                                <option>{sortByAutherAscending}</option>
+                                <option>{sortByAutherDescending}</option>
+                        </Form.Control>
+                        <IoIosArrowDown className="arrow"/>
+                    </Form.Group>
                 </Col>
             </Row>
             <Row className="justify-content-center">

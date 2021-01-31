@@ -136,3 +136,19 @@ body{
 .card-footer {
   border-top: 0px;
 }
+
+.select{
+  border-radius: 30px; 
+}
+
+.form-group {
+  position: relative;
+}
+
+.form-group .arrow {
+  position: absolute;
+  display: block;
+  left: 15px;
+  top: 10px;
+  z-index: 1; 
+} 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Col, Container, Form, Image, Modal, Row } from "react-bootstrap";
 import { Redirect } from 'react-router-dom';
+import { IoIosArrowDown } from 'react-icons/io';
 
 const AddBookPage = (props) => {
     const {activeUser, books, addBook} = props;
@@ -125,21 +126,23 @@ const AddBookPage = (props) => {
                             <Col sm={6}>
                                 <Row>
                                     <Col sm={6}>
-                                        <Form.Group controlId="formBookPublisherDate">
-                                            <Form.Label>תאריך ההוצאה</Form.Label>                                    
+                                        <Form.Label>תאריך ההוצאה</Form.Label>         
+                                        <Form.Group className="form-group" controlId="formBookPublisherDate">                           
                                             <Form.Control className="input-rounded-corners" as="select" onChange={(e) => {setbookPublishDateMonth(e.target.value)}} value={bookPublishDateMonth}>
                                                 <option>בחר חודש...</option>
                                                 {months}
                                             </Form.Control> 
+                                            <IoIosArrowDown className="arrow"/>
                                         </Form.Group>
                                     </Col> 
-                                    <Col sm={6}>
-                                        <Form.Group>                           
-                                            <Form.Label >   </Form.Label>
+                                    <Col sm={6}>                 
+                                        <Form.Label >   </Form.Label>
+                                        <Form.Group className="form-group">
                                             <Form.Control className="input-rounded-corners mt-2" as="select" onChange={(e) => {setbookPublishDateYear(e.target.value)}} value={bookPublishDateYear}>
                                                 <option>בחר שנה...</option>
                                                 {years}
                                             </Form.Control>
+                                            <IoIosArrowDown className="arrow"/>
                                         </Form.Group>
                                     </Col>
                                 </Row>

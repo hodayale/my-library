@@ -46,7 +46,7 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Brand className="logo-design text-danger brand-design" href="#/">
                 <img alt="" src={logo} width="30" height="30" className="d-inline-block"/>   
                 {' '}
-                הספריה שלי 
+                ספר של בית 
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav"> 
