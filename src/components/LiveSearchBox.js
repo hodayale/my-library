@@ -12,7 +12,7 @@ const LiveSearchBox = (props) => {
     }
 
     const resultElements = results.map((item, index) => {
-        return <ListGroup.Item onClick={() => {handleClick(index)}} key={item.id}>{item.name}</ListGroup.Item>
+        return <ListGroup.Item class="list-group-item" onClick={() => {handleClick(index)}} key={item.id}>{item.name}</ListGroup.Item>
     });    
 
     const handleInputChange = (e) => {

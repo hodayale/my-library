@@ -11,3 +11,7 @@
 .search-results:hover {
     cursor: pointer;
 }
+
+.list-group-item:hover{
+    background-color: #f8d7da;
+}
