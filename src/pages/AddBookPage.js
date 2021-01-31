@@ -76,13 +76,12 @@ const AddBookPage = (props) => {
                 setbookSummery('');
                 setbookCover('');
                 setValidated(false);
-                //setRedirect(true);
             }
         }
     }
 
-    if(redirect) {
-        return (<Redirect push to='/'/>);
+    if(!activeUser) {
+        return <Redirect push to='/'/>;
     }
                     
     return(

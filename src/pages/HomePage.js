@@ -1,4 +1,4 @@
-import { Container, Jumbotron, Row } from "react-bootstrap";
+import { Jumbotron, Row } from "react-bootstrap";
 import BookCard from "../components/BookCard";
 
 const HomePage = (props) => {

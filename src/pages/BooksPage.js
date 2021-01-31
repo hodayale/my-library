@@ -2,7 +2,6 @@ import { Col, ListGroup, Row } from "react-bootstrap";
 import { Redirect } from "react-router-dom";
 import React from 'react';
 import BookCard from "../components/BookCard";
-//import { useEffect } from 'react';
 
 class BooksPage extends React.Component {
     constructor(props){

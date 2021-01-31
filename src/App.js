@@ -261,15 +261,12 @@ function App() {
 
   return (
     <HashRouter >
-    <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
+      <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
             <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={allUsers} 
                               handleLogin={handleLogin} handleFilter={handleFilter} addUser={addUser}
                               results={results} searchBook={searchBook} showSearchResults={showSearchResults}/>
-          </Route>
-      {/* <Container > */}
-        {/* <Switch> */}
-          
-          <Route exact path="/">
+      </Route>
+      <Route exact path="/">
             <HomePage activeUser={activeUser} books={allBooks} filter={filter} 
                       booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
                       booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
@@ -278,8 +275,8 @@ function App() {
                       addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
                       addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
                       removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
-          </Route>
-          <Route exact path="/books">
+        </Route>
+        <Route exact path="/books">
             <BooksPage activeUser={activeUser} books={allBooks} filter={filter} 
                         booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
                         booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
@@ -288,8 +285,8 @@ function App() {
                         addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
                         addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
                         removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
-          </Route>
-          <Route exact path="/books/:bookId">
+        </Route>
+        <Route exact path="/books/:bookId">
             <BookDetailsPage activeUser={activeUser} books={allBooks} booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
                              booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
                              addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
@@ -297,12 +294,10 @@ function App() {
                              addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
                              addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
                              removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
-          </Route>
-          <Route exact path="/addBook">
+        </Route>
+        <Route exact path="/addBook">
             <AddBookPage activeUser={activeUser} books={allBooks} addBook={addBook}/>
-          </Route>
-        {/* </Switch> */}
-      {/* </Container> */}
+        </Route>
     </HashRouter>
   );
 }

@@ -2,8 +2,6 @@ import { Card } from "react-bootstrap";
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import Checkboxes from "./Checkboxes";
-import BookDetailsPage from "../pages/BookDetailsPage";
-//import { useEffect } from 'react';
 
 class BookCard extends React.Component{
     constructor(props){
