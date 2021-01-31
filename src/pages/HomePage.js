@@ -50,8 +50,8 @@ const HomePage = (props) => {
     return(
         <div>
             <Jumbotron className="text-center">
-                <h1 className="logo-design text-danger">ברוכים הבאים לספריה הביתית שלכם</h1>
-                <h4>כאן תוכלו לנהל את הספרים שיש לכם בבית</h4>
+                <h1 className="text-danger display-3 font-bold">ברוכים הבאים לספריה הביתית שלכם</h1>
+                <h4 className="display-6 font-bold">כאן תוכלו לנהל את הספרים שיש לכם בבית</h4>
             </Jumbotron>
             <Row className="mb-4">
                 <Col sm={4} className="text-align-end mt-1">

@@ -22,7 +22,9 @@ class BookCard extends React.Component{
         }
     
         const checkboxs =  this.props.activeUser ? <Card.Footer>
-                                                    <Checkboxes bookId={this.props.bookId} userId={this.props.activeUser.id} bookOwned={this.props.bookOwned} bookRead={this.props.bookRead} bookWantToRead={this.props.bookWantToRead} 
+                                                    <Checkboxes bookId={this.props.bookId} userId={this.props.activeUser.id} 
+                                                                bookOwned={this.props.bookOwned} 
+                                                                bookRead={this.props.bookRead} bookWantToRead={this.props.bookWantToRead} 
                                                                 bookWantToOwn={this.props.bookWantToOwn} bookLoaned={this.props.bookLoaned} 
                                                                 bookLoanerName={this.props.bookLoanerName} showLoaned={false}
                                                                 addBookOwned={this.props.addBookOwned} removeBookOwned={this.props.removeBookOwned}

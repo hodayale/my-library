@@ -184,12 +184,12 @@ function App() {
     }
   }
 
-  const removeBookWantToRead = (bookReadObj) => {
-    let objIndex = allBooksWantToRead.findIndex((obj => (obj.bookId == bookReadObj.bookId && obj.userId == bookReadObj.userId)));
+  const removeBookWantToRead = (bookWWantToReadObj) => {
+    let objIndex = allBooksWantToRead.findIndex((obj => (obj.bookId == bookWWantToReadObj.bookId && obj.userId == bookWWantToReadObj.userId)));
     if(objIndex !== -1){
       let booksWantToRead = [...allBooksWantToRead];  //shallow copy
       booksWantToRead.splice(objIndex, 1);
-      setallBooksWantToRead(booksRead);
+      setallBooksWantToRead(booksWantToRead);
       localStorage.setItem('booksWantToReadJSON', JSON.stringify(booksWantToRead));
     }
   }

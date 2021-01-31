@@ -41,12 +41,22 @@ body{
   background-color:  #faf0f1;
 }
 
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
+
 .logo-design {
-  font-family: 'Guttman Yad-Brush';
+  /* font-family: 'Guttman Yad-Brush'; */
+  /* font-family: 'Guttman Mantova-Decor'; */
+  font-family: 'Amatic SC', cursive;
+  font-weight: bolder;
+  font-size: 25px;
+}
+
+.font-bold {
+  font-weight: bolder;
 }
 
 .jumbotron {
-  padding: 5rem 1rem;
+  padding: 2rem 1rem;
   margin-bottom: 2rem;
   background-color: #f8d7da;
   border-radius: .3rem;
@@ -68,7 +78,7 @@ body{
 .jumbotron::after {
   content: "";
   background: url("./icons/books.jpg");
-  opacity: 0.4;
+  opacity: 0.3;
   top: 0;
   left: 0;
   bottom: 0;
