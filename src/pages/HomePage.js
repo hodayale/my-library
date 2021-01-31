@@ -77,6 +77,9 @@ const HomePage = (props) => {
             <Row className="justify-content-center">
                 {booksCards}
             </Row>
+            <Row className="footer">
+                <p>Copyright: © 2021    Hodaya Levy</p>
+            </Row>
         </div>
     );
 }
