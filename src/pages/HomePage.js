@@ -3,22 +3,26 @@ import BookCard from "../components/BookCard";
 import React from 'react';
 
 const HomePage = (props) => {
-    const {activeUser, books, filter, booksOwned, booksRead, booksWantToRead, 
+    const {activeUser, books, booksOwned, booksRead, booksWantToRead, 
             booksWantToOwn, booksLoaned,
             addBookOwned, removeBookOwned,
             addBookRead, removeBookRead,
             addBookWantToRead, removeBookWantToRead,
             addBookWantToOwn, removeBookWantToOwn,
             removeBookLoaned, updateBookLoaned} = props;
-    const [sortOption, setSortOption] = React.useState("לפי שם הספר (א -> ת)");
+    const sortByBookNameAscending = "לפי שם הספר (א -> ת)";
+    const sortByBookNameDescending = "לפי שם הספר (ת -> א)";
+    const sortByAutherAscending = "לפי שם המחבר (א -> ת)";
+    const sortByAutherDescending = "לפי שם המחבר (ת -> א)";
+    const [sortOption, setSortOption] = React.useState(sortByBookNameAscending);
 
-    if(sortOption === "לפי שם הספר (א -> ת)"){
+    if(sortOption === sortByBookNameAscending){
         books.sort((a,b) => (a.bookName > b.bookName) ? 1 : ((b.bookName > a.bookName) ? -1 : 0));
-    } else if(sortOption === "לפי שם הספר (ת -> א)"){
+    } else if(sortOption === sortByBookNameDescending){
         books.sort((a,b) => (a.bookName < b.bookName) ? 1 : ((b.bookName < a.bookName) ? -1 : 0));
-    } else if(sortOption === "לפי שם המחבר (א -> ת)"){
+    } else if(sortOption === sortByAutherAscending){
         books.sort((a,b) => (a.auther > b.auther) ? 1 : ((b.auther > a.auther) ? -1 : 0));
-    } else if(sortOption === "לפי שם המחבר (ת -> א)"){
+    } else if(sortOption === sortByAutherDescending){
         books.sort((a,b) => (a.auther < b.auther) ? 1 : ((b.auther < a.auther) ? -1 : 0));
     }
     
@@ -34,7 +38,7 @@ const HomePage = (props) => {
         const bookWantToRead = activeUser ? booksWantToRead.filter(item => (item.userId === activeUser.id && item.bookId === book.id)).length > 0 : "";
         //get if book loaned
         const bookLoaned = activeUser ? booksLoaned.filter(item => (item.userId === activeUser.id && item.bookId === book.id)).length > 0 : "";
-        return <BookCard key={book.id} activeUser={activeUser} filter={filter} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}
+        return <BookCard key={book.id} activeUser={activeUser} bookId={book.id} bookName={book.bookName} bookAuther={book.auther} bookPicture={book.bookCover}
                             bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} bookWantToOwn={bookWantToOwn} bookLoaned={bookLoaned}
                             addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
                             addBookRead={addBookRead} removeBookRead={removeBookRead}
@@ -59,10 +63,10 @@ const HomePage = (props) => {
                 </Col>
                 <Col sm={4}>
                     <Form.Control as="select" onChange={handlChangeSort} value={sortOption}>
-                        <option>לפי שם הספר (א -> ת)</option>
-                        <option>לפי שם הספר (ת -> א)</option>
-                        <option>לפי שם המחבר (א -> ת)</option>
-                        <option>לפי שם המחבר (ת -> א)</option>
+                        <option>{sortByBookNameAscending}</option>
+                        <option>{sortByBookNameDescending}</option>
+                        <option>{sortByAutherAscending}</option>
+                        <option>{sortByAutherDescending}</option>
                     </Form.Control>
                 </Col>
             </Row>

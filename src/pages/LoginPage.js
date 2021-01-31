@@ -8,9 +8,6 @@ const LoginPage = (props) => {
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
-    
-    //const handleClose = () => setShow(false);
-    //const handleShow = () => setShow(true);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -29,7 +26,6 @@ const LoginPage = (props) => {
                 handleLogin(foundUser);
                 setShow(false);
                 handleCloseLogin();
-                //handlRedirectToBooks();
             }
             else {
                 setemail('');
@@ -38,6 +34,12 @@ const LoginPage = (props) => {
             }
         }
     };
+
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+    }
 
     return(
         <Modal show={show} backdrop="static" keyboard={false} centered>
@@ -60,7 +62,7 @@ const LoginPage = (props) => {
                 </Form>
             </Modal.Body>
             <Modal.Footer className="justify-content-center">
-                <Button className="button-rounded-corners bg-danger" type="button" block onClick={handleSubmit} variant="danger">כניסה</Button>
+                <Button className="button-rounded-corners bg-danger" type="button" block onClick={handleSubmit} onKeyPress={handleEnter} variant="danger">כניסה</Button>
                 <Form.Text className="text-muted">
                 לא רשום עדיין? 
                 <span className="link-design" onClick={() => {setShow(false); handleCloseLogin(); handleShowSignup();}}> לחץ כאן </span>

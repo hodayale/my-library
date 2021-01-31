@@ -1,5 +1,3 @@
-import { Container } from 'react-bootstrap';
-import Switch from 'react-bootstrap/esm/Switch';
 import { HashRouter, Route } from 'react-router-dom';
 import './App.css';
 import MyLibraryNavbar from './components/MyLibraryNavbar';
@@ -18,18 +16,8 @@ import booksWantToOwnJSON from './data/booksWantToOwn.json';
 import booksWantToReadJSON from './data/booksWantToRead.json';
 
 function App() {
-  // const [activeUser, setactiveUser] = React.useState({
-  //                                     id: 1,
-  //                                     fname: "הודיה",
-  //                                     lname: "לוי",
-  //                                     email: "hodayale@gmail.com",
-  //                                     password: "hodi1234",
-  //                                     phone: ""
-  //                                   });
-
   const [activeUser, setactiveUser] = React.useState(null);
   
-  const [filter, setfilter] = React.useState('');
   const [results, setResults] = React.useState([]);
 
   // All Books state
@@ -107,11 +95,6 @@ function App() {
 
   const [allUsers, setallUsers] = React.useState(users);
   
-
-  const handleFilter = (e) => {
-    setfilter(e.target.value);
-  }
-
   const handleLogin = (userObj) => {
     setactiveUser(userObj);
   }
@@ -263,11 +246,11 @@ function App() {
     <HashRouter >
       <Route exact path={["/", "/books", "/addBook", "/books/:bookId"]}>
             <MyLibraryNavbar logo={logo} activeUser={activeUser} handleLogout={handleLogout} users={allUsers} 
-                              handleLogin={handleLogin} handleFilter={handleFilter} addUser={addUser}
+                              handleLogin={handleLogin} addUser={addUser}
                               results={results} searchBook={searchBook} showSearchResults={showSearchResults}/>
       </Route>
       <Route exact path="/">
-            <HomePage activeUser={activeUser} books={allBooks} filter={filter} 
+            <HomePage activeUser={activeUser} books={allBooks}
                       booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
                       booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
                       addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}
@@ -277,7 +260,7 @@ function App() {
                       removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/>
         </Route>
         <Route exact path="/books">
-            <BooksPage activeUser={activeUser} books={allBooks} filter={filter} 
+            <BooksPage activeUser={activeUser} books={allBooks}
                         booksOwned={allBooksOwned} booksRead={allBooksRead} booksWantToRead={allBooksWantToRead} 
                         booksWantToOwn={allBooksWantToOwn} booksLoaned={allBooksLoaned}
                         addBookOwned={addBookOwned} removeBookOwned={removeBookOwned}

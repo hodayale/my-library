@@ -13,7 +13,6 @@ const AddBookPage = (props) => {
     const [bookNumPages, setbookNumPages] = React.useState(0);
     const [bookSummery, setbookSummery] = React.useState('');
     const [bookCover, setbookCover] = React.useState('');
-    const [redirect, setRedirect] = React.useState(false);
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [show, setShow] = React.useState(false);
@@ -77,6 +76,18 @@ const AddBookPage = (props) => {
                 setbookCover('');
                 setValidated(false);
             }
+        }
+    }
+
+    const handleEnter = (e) => {
+        if (e.key === 'Enter') {
+            handleAddBook();
+        }
+    }
+
+    const handleModalEnter = (e) => {
+        if (e.key === 'Enter') {
+            setShow(false);
         }
     }
 
@@ -166,14 +177,14 @@ const AddBookPage = (props) => {
                     </Col>
                 </Row>
                 <Form.Group className="justify-content-center">
-                    <Button type="button" className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={handleAddBook}>הוסף ספר</Button>
+                    <Button type="button" className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={handleAddBook} onKeyDown={handleEnter}>הוסף ספר</Button>
                 </Form.Group>
             </Form>
 
             <Modal show={show} backdrop="static" keyboard={false} centered>
                 <Modal.Footer className="justify-content-center">
                     <p className="text-center">הספר נוסף בהצלחה!</p>
-                    <Button className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={()=>{setShow(false)}}>Close</Button>
+                    <Button className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={()=>{setShow(false)}} onKeyDown={handleModalEnter}>Close</Button>
                 </Modal.Footer>
             </Modal>
         </Container>

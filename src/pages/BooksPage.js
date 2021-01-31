@@ -45,7 +45,7 @@ class BooksPage extends React.Component {
                         const bookWantToRead = this.props.booksWantToRead.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
                         //get if book loaned
                         const bookLoaned = this.props.booksLoaned.filter(item => (item.userId === this.props.activeUser.id && item.bookId === book[0].id)).length > 0;
-                        return <BookCard key={book[0].id} activeUser={this.props.activeUser} filter={this.props.filter} bookId={book[0].id} 
+                        return <BookCard key={book[0].id} activeUser={this.props.activeUser} bookId={book[0].id} 
                                 bookName={book[0].bookName} bookAuther={book[0].auther} bookPicture={book[0].bookCover}
                                 bookOwned={bookOwned} bookRead={bookRead} bookWantToRead={bookWantToRead} bookWantToOwn={bookWantToOwn}
                                 bookLoaned={bookLoaned}

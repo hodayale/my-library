@@ -18,7 +18,6 @@ class BookCard extends React.Component{
     render() {
         if(this.state.redirect) {
             return (<Redirect push to={`/books/${this.props.bookId}`}/>)
-            //return(<BookDetailsPage activeUser={this.props.activeUser} books={this.props.books} bookId={this.props.bookId}/>)
         }
     
         const checkboxs =  this.props.activeUser ? <Card.Footer>

@@ -7,7 +7,7 @@ import SignupPage from '../pages/SinupPage';
 import LiveSearchBox from './LiveSearchBox';
 
 const MyLibraryNavbar = (props) => {
-    const {logo, activeUser, handleLogout, users, handleLogin, handleFilter, addUser, results, searchBook, showSearchResults} = props;
+    const {logo, activeUser, handleLogout, users, handleLogin, addUser, results, searchBook, showSearchResults} = props;
     const [showLogin, setShowLogin] = React.useState(false);
     const [showSignup, setShowSignup] = React.useState(false);
     
