@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/my-app/static/css/main.0ca5b28e.chunk.css",
+    "main.js": "/my-app/static/js/main.284d0b79.chunk.js",
+    "main.js.map": "/my-app/static/js/main.284d0b79.chunk.js.map",
+    "runtime-main.js": "/my-app/static/js/runtime-main.8c15c89b.js",
+    "runtime-main.js.map": "/my-app/static/js/runtime-main.8c15c89b.js.map",
+    "static/js/2.e0b5dcad.chunk.js": "/my-app/static/js/2.e0b5dcad.chunk.js",
+    "static/js/2.e0b5dcad.chunk.js.map": "/my-app/static/js/2.e0b5dcad.chunk.js.map",
+    "static/js/3.4d3e8c7a.chunk.js": "/my-app/static/js/3.4d3e8c7a.chunk.js",
+    "static/js/3.4d3e8c7a.chunk.js.map": "/my-app/static/js/3.4d3e8c7a.chunk.js.map",
+    "index.html": "/my-app/index.html",
+    "static/css/main.0ca5b28e.chunk.css.map": "/my-app/static/css/main.0ca5b28e.chunk.css.map",
+    "static/js/2.e0b5dcad.chunk.js.LICENSE.txt": "/my-app/static/js/2.e0b5dcad.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/my-app/static/media/books.35ffd38c.jpg",
+    "static/media/love-book.d672d2ac.svg": "/my-app/static/media/love-book.d672d2ac.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8c15c89b.js",
+    "static/js/2.e0b5dcad.chunk.js",
+    "static/css/main.0ca5b28e.chunk.css",
+    "static/js/main.284d0b79.chunk.js"
+  ]
+}
