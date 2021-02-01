@@ -11,7 +11,13 @@ const BookDetailsPage = (props) => {
     const {bookId} = useParams();
 
     //get book details by ID
-    const selectedBook = books.find((item) => {return item.id == bookId});
+    let selectedBook = books.find((item) => {return item.id == bookId});
+    if(selectedBook.publishDate.includes('בחר חודש...')) {
+        selectedBook.publishDate = selectedBook.publishDate.replace('בחר חודש...', '');
+    }
+    if(selectedBook.publishDate.includes('בחר שנה...')) {
+        selectedBook.publishDate = selectedBook.publishDate.replace('בחר שנה...', '');
+    }
 
     let checkboxs = "";
     if(activeUser){
