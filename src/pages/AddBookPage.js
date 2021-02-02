@@ -101,15 +101,15 @@ const AddBookPage = (props) => {
             <h1 className="text-center name-of-book-design">הוסף ספר חדש</h1>
             <Form noValidate validated={validated}>
                 <Row className="mt-4">
-                    <Col sm={8}>
+                    <Col lg={8}>
                         <Row>
-                            <Col sm={6}>
+                            <Col lg={6}>
                                 <Form.Group controlId="formBookName">
                                     <Form.Label>שם הספר</Form.Label>
                                     <Form.Control className="input-rounded-corners" required type="text" onChange={(e) => {setbookName(e.target.value)}} value={bookName} />
                                 </Form.Group>
                             </Col>
-                            <Col sm={6}>
+                            <Col lg={6}>
                                 <Form.Group controlId="formBookAuther">
                                     <Form.Label>שם המחבר</Form.Label>
                                     <Form.Control className="input-rounded-corners" type="text" onChange={(e) => {setbookAuther(e.target.value)}} value={bookAuther} required/>
@@ -117,15 +117,15 @@ const AddBookPage = (props) => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm={6}>
+                            <Col lg={6}>
                             <Form.Group controlId="formBookPublisher">
                                 <Form.Label>שם ההוצאה</Form.Label>
                                 <Form.Control className="input-rounded-corners" type="text" onChange={(e) => {setbookPublisher(e.target.value)}} value={bookPublisher} required/>
                             </Form.Group>
                             </Col>
-                            <Col sm={6}>
+                            <Col lg={6}>
                                 <Row>
-                                    <Col sm={6}>
+                                    <Col lg={6}>
                                         <Form.Label>תאריך ההוצאה</Form.Label>         
                                         <Form.Group className="form-group" controlId="formBookPublisherDate">                           
                                             <Form.Control className="input-rounded-corners" as="select" onChange={(e) => {setbookPublishDateMonth(e.target.value)}} value={bookPublishDateMonth}>
@@ -135,7 +135,7 @@ const AddBookPage = (props) => {
                                             <IoIosArrowDown className="arrow"/>
                                         </Form.Group>
                                     </Col> 
-                                    <Col sm={6}>                 
+                                    <Col lg={6}>                 
                                         <Form.Label >   </Form.Label>
                                         <Form.Group className="form-group">
                                             <Form.Control className="input-rounded-corners mt-2" as="select" onChange={(e) => {setbookPublishDateYear(e.target.value)}} value={bookPublishDateYear}>
@@ -149,13 +149,13 @@ const AddBookPage = (props) => {
                             </Col>
                         </Row>
                         <Row>
-                            <Col sm={6}>
+                            <Col lg={6}>
                             <Form.Group controlId="formBookCategory">
                                 <Form.Label>קטגוריה</Form.Label>
                                 <Form.Control className="input-rounded-corners" type="text" onChange={(e) => {setbookCategory(e.target.value)}} value={bookCategory}/>
                             </Form.Group>
                             </Col>
-                            <Col sm={6}>
+                            <Col lg={6}>
                             <Form.Group controlId="formBookNumPages">
                                 <Form.Label>מספר עמודים</Form.Label>
                                 <Form.Control className="input-rounded-corners" type="number" onChange={(e) => {setbookNumPages(e.target.value)}} value={bookNumPages}/>
@@ -173,14 +173,13 @@ const AddBookPage = (props) => {
                         </Form.Group>  
                         <Form.Text className="text-danger">{validateMsg}</Form.Text>
                     </Col>
-                    <Col sm={4}>
-                        <div className={bookCover === "" ? "image-border" : ""}>
-                            <Image className="image" style={{ width: '18rem'}} src={bookCover}/>
-                        </div>
+                    <Col lg={4} className="mt-4">
+                        <div className={bookCover === "" ? "image-border" : ""}></div>
+                        <Image className="image" style={{ width: '18rem'}} src={bookCover}/>
                     </Col>
                 </Row>
                 <Form.Group className="justify-content-center">
-                    <Button type="button" className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={handleAddBook} onKeyDown={handleEnter}>הוסף ספר</Button>
+                    <Button type="button" className="mt-4 mb-4 button-rounded-corners bg-danger" variant="danger" onClick={handleAddBook} onKeyDown={handleEnter}>הוסף ספר</Button>
                 </Form.Group>
             </Form>
 

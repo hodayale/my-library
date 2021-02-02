@@ -59,10 +59,10 @@ const HomePage = (props) => {
                 <h4 className="font-bold">כאן תוכלו לנהל את הספרים שיש לכם בבית</h4>
             </Jumbotron>
             <Row className="mb-4">
-                <Col sm={4} className="text-align-end mt-1">
+                <Col lg={4} md={4} sm={6} className="text-align-end mt-1">
                     <Form.Label>מיין</Form.Label>
                 </Col>
-                <Col sm={4}>
+                <Col lg={4} md={4} sm={6}>
                     <Form.Group className="form-group">
                         <Form.Control className="select" as="select" onChange={handlChangeSort} value={sortOption}>
                                 <option>{sortByBookNameAscending}</option>

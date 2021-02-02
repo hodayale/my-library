@@ -117,13 +117,13 @@ const Checkboxes = (props) => {
                 <Form.Check type='checkbox' id='books-want-to-own' checked={wantToOwn} onChange={handleChangedWantToOwn} 
                                 value={wantToOwn} disabled={owned} label='ברצוני לרכוש'/>
                 {showLoaned ? <Row>
-                        <Col sm={5}>
-                        <Form.Check type='checkbox' id='books-loaned' checked={loaned}
+                        <Col sm={5} md={5} lg={5}>
+                            <Form.Check className="mt-1" type='checkbox' id='books-loaned' checked={loaned}
                                         onChange={handleChangedLoaned} 
-                                        value={loaned} label='השאלתי ל'/>
+                                        value={loaned} label='למי השאלתי'/>
                         </Col>
-                        <Col sm={7}>
-                        <Form.Control value={loanerName} onChange={(e) => setLoanerName(e.target.value)} onBlur={handleChangedLoanedName} onKeyDown={handleEnter} disabled={loaned ? false : true}></Form.Control>
+                        <Col sm={7} md={7} lg={7}>
+                            <Form.Control value={loanerName} onChange={(e) => setLoanerName(e.target.value)} onBlur={handleChangedLoanedName} onKeyDown={handleEnter} disabled={loaned ? false : true}></Form.Control>
                         </Col>
                     </Row> : ""}
         </Form>

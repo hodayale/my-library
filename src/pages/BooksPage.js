@@ -60,7 +60,7 @@ class BooksPage extends React.Component {
 
         return(
             <Row className="mt-4">
-                <Col sm={2} >
+                <Col xl={2} lg={3}  md={4} sm={6}>
                     <ListGroup className="list-grout-design">
                         <ListGroup.Item className={this.state.active === 'owned' ? "active" : ""}
                                         action onClick={() => this.handleChangeActive(this.props.booksOwned, 'owned')}
@@ -75,7 +75,7 @@ class BooksPage extends React.Component {
                                         action onClick={() => this.handleChangeActive(this.props.booksLoaned, 'loaned')} variant="danger">ספרים שהשאלתי</ListGroup.Item>
                     </ListGroup>
                     </Col>
-                <Col sm={10}>
+                <Col xl={10} lg={9} md={8} sm={6}>
                     <Row className="justify-content-even">
                         {bookCards}
                     </Row>
