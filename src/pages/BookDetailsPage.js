@@ -47,15 +47,20 @@ const BookDetailsPage = (props) => {
 
     return(
         <Container>
-            
+            <Row>
+                <h1 className="name-of-book-design">{selectedBook.bookName}</h1>
+                <h4>{selectedBook.auther}</h4>
+            </Row>
             <Row className="mt-4">
-            <Col sm={3}>
-                    <Image  style={{ width: '18rem'}} src={selectedBook.bookCover} rounded/>
+                <Col sm={6} md={6} lg={3}>
+                    <Image className="mb-2"  style={{ width: '18rem'}} src={selectedBook.bookCover} rounded/>
                     {activeUser ? checkboxs : ''}
                 </Col>
-                <Col sm={9}>
-                    <h1 className="name-of-book-design">{selectedBook.bookName}</h1>
-                    <h4>{selectedBook.auther}</h4>
+                <Col sm={0}  md={0} lg={1}>
+
+                </Col>
+                <Col sm={6}  md={6} lg={8}>
+                    
                     <p><span style={{fontWeight: "bold"}}>שם ההוצאה: </span>{selectedBook.publisher}</p>
                     <p><span style={{fontWeight: "bold"}}>תאריך ההוצאה: </span>{selectedBook.publishDate}</p>
                     <p><span style={{fontWeight: "bold"}}>קטגוריה: </span>{selectedBook.category}</p>
