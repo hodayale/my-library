@@ -132,7 +132,7 @@ const AddBookPage = (props) => {
                                                 <option>בחר חודש...</option>
                                                 {months}
                                             </Form.Control> 
-                                            <IoIosArrowDown className="arrow"/>
+                                            <IoIosArrowDown className="img-in-input"/>
                                         </Form.Group>
                                     </Col> 
                                     <Col lg={6}>                 
@@ -142,7 +142,7 @@ const AddBookPage = (props) => {
                                                 <option>בחר שנה...</option>
                                                 {years}
                                             </Form.Control>
-                                            <IoIosArrowDown className="arrow"/>
+                                            <IoIosArrowDown className="img-in-input"/>
                                         </Form.Group>
                                     </Col>
                                 </Row>

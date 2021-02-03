@@ -70,7 +70,7 @@ const HomePage = (props) => {
                                 <option>{sortByAutherAscending}</option>
                                 <option>{sortByAutherDescending}</option>
                         </Form.Control>
-                        <IoIosArrowDown className="arrow"/>
+                        <IoIosArrowDown className="img-in-input"/>
                     </Form.Group>
                 </Col>
             </Row>

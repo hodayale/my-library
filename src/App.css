@@ -146,7 +146,7 @@ body{
   position: relative;
 }
 
-.form-group .arrow {
+.form-group .img-in-input {
   position: absolute;
   display: block;
   left: 15px;

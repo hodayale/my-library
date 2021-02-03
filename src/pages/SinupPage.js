@@ -1,5 +1,6 @@
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import React from 'react';
+import { ImEye, ImEyeBlocked } from 'react-icons/im';
 
 const SignupPage = (props) => {
     const {users, handleLogin, handleCloseSignup, addUser} = props;
@@ -10,6 +11,7 @@ const SignupPage = (props) => {
     const [lName, setlName] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
+    const [inputType, setInputType] = React.useState('password');
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -76,10 +78,12 @@ const SignupPage = (props) => {
                         <Form.Control className="input-rounded-corners text-right" required type="email" 
                                             onChange={(e) => {setemail(e.target.value);}} value={email}/>
                     </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>* סיסמה</Form.Label>
-                        <Form.Control className="input-rounded-corners" required type="password" 
+                    <Form.Label>* סיסמה</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicPassword">
+                        <Form.Control className="input-rounded-corners" required type={inputType} 
                                             onChange={(e) => {setpassword(e.target.value);}} value={password}/>
+                        {(inputType === 'password') ? <ImEye className="img-in-input hover-design" onClick={() => setInputType('text')}/> 
+                                                    : <ImEyeBlocked className="img-in-input hover-design" onClick={() => setInputType('password')}/>}
                     </Form.Group>
                     <Form.Text className="text-danger">{validateMsg}</Form.Text>
                 </Form>

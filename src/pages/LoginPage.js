@@ -1,5 +1,6 @@
 import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
+import { ImEye, ImEyeBlocked } from 'react-icons/im';
 
 const LoginPage = (props) => {
     const {users, handleLogin, handleShowSignup, handleCloseLogin} = props;
@@ -8,6 +9,7 @@ const LoginPage = (props) => {
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
+    const [inputType, setInputType] = React.useState('password');
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -53,10 +55,12 @@ const LoginPage = (props) => {
                         <Form.Control className="input-rounded-corners text-right" required type="email" 
                                     onChange={(e) => {setemail(e.target.value); setvalidateMsg('');}} value={email}/>
                     </Form.Group>
-                    <Form.Group controlId="formBasicPassword">
-                        <Form.Label>* סיסמה</Form.Label>
-                        <Form.Control className="input-rounded-corners" required type="password" 
-                                    onChange={(e) => {setpassword(e.target.value); setvalidateMsg('');}} value={password}/>
+                    <Form.Label>* סיסמה</Form.Label>
+                    <Form.Group className="form-group" controlId="formBasicPassword">
+                        <Form.Control className="input-rounded-corners" required type={inputType} 
+                                            onChange={(e) => {setpassword(e.target.value);}} value={password}/>
+                        {(inputType === 'password') ? <ImEye className="img-in-input hover-design" onClick={() => setInputType('text')}/> 
+                                                    : <ImEyeBlocked className="img-in-input hover-design" onClick={() => setInputType('password')}/>}
                     </Form.Group>
                     <Form.Text className="text-danger">{validateMsg}</Form.Text>
                 </Form>
