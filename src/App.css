@@ -155,11 +155,12 @@ body{
 } 
 
 .footer {
-  text-align: center;
+  text-align: left;
   background-color:  #f8a8af;
   color:  #eb3c4a;
   font-weight: 500;
-  padding-top: 20px;
+  padding-top: 10px;
   font-family: 'Cavolini';
-  font-size: 20px;
+  font-size: 15px;
+  padding-left: 10px;
 }

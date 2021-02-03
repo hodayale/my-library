@@ -1,5 +1,6 @@
 import { Col, Form, Row } from "react-bootstrap";
 import React from 'react';
+import './Checkboxes.css'
 
 const Checkboxes = (props) => {
     const {bookId, userId, bookOwned, bookRead, bookWantToRead, bookWantToOwn, bookLoaned, 
@@ -110,15 +111,15 @@ const Checkboxes = (props) => {
     
     return(
         <Form>
-                <Form.Check type='checkbox' id='books-owned' checked={owned} onChange={handleChangedOwned} value={owned} label='ברשותי'/>
-                <Form.Check type='checkbox' id='books-read' checked={read} onChange={handleChangedRead} value={read} label='קראתי'/>
-                <Form.Check type='checkbox' id='books-want-to-read' checked={wantToRead} onChange={handleChangedWantToRead} 
+                <Form.Check type='checkbox' checked={owned} onChange={handleChangedOwned} value={owned} label='ברשותי'/>
+                <Form.Check type='checkbox' checked={read} onChange={handleChangedRead} value={read} label='קראתי'/>
+                <Form.Check type='checkbox' checked={wantToRead} onChange={handleChangedWantToRead} 
                                 value={wantToRead} disabled={read} label='ברצוני לקרוא'/>
-                <Form.Check type='checkbox' id='books-want-to-own' checked={wantToOwn} onChange={handleChangedWantToOwn} 
+                <Form.Check type='checkbox' checked={wantToOwn} onChange={handleChangedWantToOwn} 
                                 value={wantToOwn} disabled={owned} label='ברצוני לרכוש'/>
                 {showLoaned ? <Row>
                         <Col sm={5} md={5} lg={5}>
-                            <Form.Check className="mt-1" type='checkbox' id='books-loaned' checked={loaned}
+                            <Form.Check className="mt-1" type='checkbox' checked={loaned}
                                         onChange={handleChangedLoaned} 
                                         value={loaned} label='למי השאלתי'/>
                         </Col>

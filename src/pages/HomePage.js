@@ -78,7 +78,7 @@ const HomePage = (props) => {
                 {booksCards}
             </Row>
             <Row className="footer">
-                <p>Copyright: © 2021    Hodaya Levy</p>
+                <p>Copyright: © Hodaya Levy 2021</p>
             </Row>
         </div>
     );

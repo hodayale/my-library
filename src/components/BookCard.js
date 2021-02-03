@@ -2,6 +2,7 @@ import { Card } from "react-bootstrap";
 import React from 'react';
 import { Redirect } from "react-router-dom";
 import Checkboxes from "./Checkboxes";
+import './BookCard.css'
 
 class BookCard extends React.Component{
     constructor(props){
@@ -20,7 +21,7 @@ class BookCard extends React.Component{
             return (<Redirect push to={`/books/${this.props.bookId}`}/>)
         }
     
-        const checkboxs =  this.props.activeUser ? <Card.Footer>
+        const checkboxs =  this.props.activeUser ? <Card.Footer className="bg-danger-light">
                                                     <Checkboxes bookId={this.props.bookId} userId={this.props.activeUser.id} 
                                                                 bookOwned={this.props.bookOwned} 
                                                                 bookRead={this.props.bookRead} bookWantToRead={this.props.bookWantToRead} 
