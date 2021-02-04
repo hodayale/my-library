@@ -1,24 +1,24 @@
 {
   "files": {
-    "main.css": "/my-library/static/css/main.7d4c1265.chunk.css",
-    "main.js": "/my-library/static/js/main.d9ad8756.chunk.js",
-    "main.js.map": "/my-library/static/js/main.d9ad8756.chunk.js.map",
-    "runtime-main.js": "/my-library/static/js/runtime-main.4cdfd589.js",
-    "runtime-main.js.map": "/my-library/static/js/runtime-main.4cdfd589.js.map",
-    "static/js/2.e0b5dcad.chunk.js": "/my-library/static/js/2.e0b5dcad.chunk.js",
-    "static/js/2.e0b5dcad.chunk.js.map": "/my-library/static/js/2.e0b5dcad.chunk.js.map",
-    "static/js/3.4d3e8c7a.chunk.js": "/my-library/static/js/3.4d3e8c7a.chunk.js",
-    "static/js/3.4d3e8c7a.chunk.js.map": "/my-library/static/js/3.4d3e8c7a.chunk.js.map",
+    "main.css": "/my-library/static/css/main.de3e0894.chunk.css",
+    "main.js": "/my-library/static/js/main.fe1d0e5c.chunk.js",
+    "main.js.map": "/my-library/static/js/main.fe1d0e5c.chunk.js.map",
+    "runtime-main.js": "/my-library/static/js/runtime-main.80656207.js",
+    "runtime-main.js.map": "/my-library/static/js/runtime-main.80656207.js.map",
+    "static/js/2.32296a34.chunk.js": "/my-library/static/js/2.32296a34.chunk.js",
+    "static/js/2.32296a34.chunk.js.map": "/my-library/static/js/2.32296a34.chunk.js.map",
+    "static/js/3.baff930b.chunk.js": "/my-library/static/js/3.baff930b.chunk.js",
+    "static/js/3.baff930b.chunk.js.map": "/my-library/static/js/3.baff930b.chunk.js.map",
     "index.html": "/my-library/index.html",
-    "static/css/main.7d4c1265.chunk.css.map": "/my-library/static/css/main.7d4c1265.chunk.css.map",
-    "static/js/2.e0b5dcad.chunk.js.LICENSE.txt": "/my-library/static/js/2.e0b5dcad.chunk.js.LICENSE.txt",
+    "static/css/main.de3e0894.chunk.css.map": "/my-library/static/css/main.de3e0894.chunk.css.map",
+    "static/js/2.32296a34.chunk.js.LICENSE.txt": "/my-library/static/js/2.32296a34.chunk.js.LICENSE.txt",
     "static/media/App.css": "/my-library/static/media/books.35ffd38c.jpg",
     "static/media/love-book.d672d2ac.svg": "/my-library/static/media/love-book.d672d2ac.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.4cdfd589.js",
-    "static/js/2.e0b5dcad.chunk.js",
-    "static/css/main.7d4c1265.chunk.css",
-    "static/js/main.d9ad8756.chunk.js"
+    "static/js/runtime-main.80656207.js",
+    "static/js/2.32296a34.chunk.js",
+    "static/css/main.de3e0894.chunk.css",
+    "static/js/main.fe1d0e5c.chunk.js"
   ]
 }
