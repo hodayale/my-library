@@ -16,7 +16,14 @@ import booksWantToOwnJSON from './data/booksWantToOwn.json';
 import booksWantToReadJSON from './data/booksWantToRead.json';
 
 function App() {
-  const [activeUser, setactiveUser] = React.useState(null);
+  let user;
+  if(localStorage.getItem('activeUser')) {
+    user = JSON.parse(localStorage.getItem('activeUser'));
+  }else {
+    user = null;
+  }
+
+  const [activeUser, setactiveUser] = React.useState(user);
   
   const [results, setResults] = React.useState([]);
 
@@ -95,12 +102,16 @@ function App() {
 
   const [allUsers, setallUsers] = React.useState(users);
   
-  const handleLogin = (userObj) => {
+  const handleLogin = (userObj, rememberUser = false) => {
     setactiveUser(userObj);
+    if(rememberUser){
+      localStorage.setItem('activeUser', JSON.stringify(userObj));
+    }
   }
 
   const handleLogout = () => {
     setactiveUser(null);
+    localStorage.setItem('activeUser', JSON.stringify(null));
   }
 
   const addBook = (bookObj) => {

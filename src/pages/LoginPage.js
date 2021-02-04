@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form, Modal } from 'react-bootstrap';
-import { ImEye, ImEyeBlocked } from 'react-icons/im';
+import EmailAndPassword from '../components/EmailAndPassword';
 
 const LoginPage = (props) => {
     const {users, handleLogin, handleShowSignup, handleCloseLogin} = props;
@@ -9,7 +9,7 @@ const LoginPage = (props) => {
     const [validateMsg, setvalidateMsg] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
-    const [inputType, setInputType] = React.useState('password');
+    const [rememberMe, setRememberMe] = React.useState(false);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -25,7 +25,7 @@ const LoginPage = (props) => {
                 return (user.email === email && user.password === password)
             });
             if(foundUser) {
-                handleLogin(foundUser);
+                handleLogin(foundUser, rememberMe);
                 setShow(false);
                 handleCloseLogin();
             }
@@ -43,6 +43,19 @@ const LoginPage = (props) => {
         }
     }
 
+    const handleEmail = (e) => {
+        setemail(e.target.value); 
+        setvalidateMsg('');
+    }
+
+    const handlePassword = (e) => {
+        setpassword(e.target.value);
+    }
+
+    const handleRememberMe = () => {
+        setRememberMe(!rememberMe);
+    }
+
     return(
         <Modal animation={false} show={show} backdrop="static" keyboard={false} centered>
             <Modal.Header className="justify-content-center">
@@ -50,18 +63,8 @@ const LoginPage = (props) => {
             </Modal.Header>
             <Modal.Body>
                 <Form noValidate validated={validated}>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>* כתובת דואר אלקטרוני</Form.Label>
-                        <Form.Control className="input-rounded-corners text-right" required type="email" 
-                                    onChange={(e) => {setemail(e.target.value); setvalidateMsg('');}} value={email}/>
-                    </Form.Group>
-                    <Form.Label>* סיסמה</Form.Label>
-                    <Form.Group className="form-group" controlId="formBasicPassword">
-                        <Form.Control className="input-rounded-corners" required type={inputType} 
-                                            onChange={(e) => {setpassword(e.target.value);}} value={password}/>
-                        {(inputType === 'password') ? <ImEye className="img-in-input hover-design" onClick={() => setInputType('text')}/> 
-                                                    : <ImEyeBlocked className="img-in-input hover-design" onClick={() => setInputType('password')}/>}
-                    </Form.Group>
+                    <EmailAndPassword email={email} handleEmail={handleEmail} password={password} handlePassword={handlePassword} 
+                                        rememberMe={rememberMe} handleRememberMe={handleRememberMe} />
                     <Form.Text className="text-danger">{validateMsg}</Form.Text>
                 </Form>
             </Modal.Body>

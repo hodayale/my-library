@@ -150,9 +150,13 @@ body{
   position: absolute;
   display: block;
   left: 15px;
-  top: 10px;
+  top: 12px;
   z-index: 1; 
 } 
+
+.form-group .eye-img-in-input {
+  left: 30px;
+}
 
 .footer {
   text-align: left;
@@ -163,4 +167,8 @@ body{
   font-family: 'Cavolini';
   font-size: 15px;
   padding-left: 10px;
+}
+
+.mr-1 {
+  margin-right: 10px !important;
 }

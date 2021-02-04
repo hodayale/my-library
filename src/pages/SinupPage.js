@@ -1,6 +1,7 @@
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import React from 'react';
 import { ImEye, ImEyeBlocked } from 'react-icons/im';
+import EmailAndPassword from "../components/EmailAndPassword";
 
 const SignupPage = (props) => {
     const {users, handleLogin, handleCloseSignup, addUser} = props;
@@ -11,7 +12,7 @@ const SignupPage = (props) => {
     const [lName, setlName] = React.useState('');
     const [email, setemail] = React.useState('');
     const [password, setpassword] = React.useState('');
-    const [inputType, setInputType] = React.useState('password');
+    const [rememberMe, setRememberMe] = React.useState(false);
 
     const handleSubmit = (event) => {
         const form = event.currentTarget;
@@ -52,6 +53,19 @@ const SignupPage = (props) => {
         setShow(false);
     }
 
+    const handleEmail = (e) => {
+        setemail(e.target.value); 
+        setvalidateMsg('');
+    }
+
+    const handlePassword = (e) => {
+        setpassword(e.target.value);
+    }
+
+    const handleRememberMe = () => {
+        setRememberMe(!rememberMe);
+    }
+
     return(
         <Modal animation={false} show={show} backdrop="static" keyboard={false} centered>
             <Modal.Header className="justify-content-center">
@@ -73,18 +87,8 @@ const SignupPage = (props) => {
                             </Form.Group>
                         </Col>
                     </Row>
-                    <Form.Group controlId="formBasicEmail">
-                        <Form.Label>* כתובת דואר אלקטרוני</Form.Label>
-                        <Form.Control className="input-rounded-corners text-right" required type="email" 
-                                            onChange={(e) => {setemail(e.target.value);}} value={email}/>
-                    </Form.Group>
-                    <Form.Label>* סיסמה</Form.Label>
-                    <Form.Group className="form-group" controlId="formBasicPassword">
-                        <Form.Control className="input-rounded-corners" required type={inputType} 
-                                            onChange={(e) => {setpassword(e.target.value);}} value={password}/>
-                        {(inputType === 'password') ? <ImEye className="img-in-input hover-design" onClick={() => setInputType('text')}/> 
-                                                    : <ImEyeBlocked className="img-in-input hover-design" onClick={() => setInputType('password')}/>}
-                    </Form.Group>
+                    <EmailAndPassword email={email} handleEmail={handleEmail} password={password} handlePassword={handlePassword} 
+                                        rememberMe={rememberMe} handleRememberMe={handleRememberMe} />
                     <Form.Text className="text-danger">{validateMsg}</Form.Text>
                 </Form>
             </Modal.Body>
