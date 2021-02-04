@@ -15,3 +15,11 @@
 .list-group-item:hover{
     background-color: #f8d7da;
 }
+
+.c-live-search-box .img-in-input {
+    position: absolute;
+    display: block;
+    left: 0px;
+    top: 10px;
+    z-index: 101; 
+  } 

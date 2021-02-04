@@ -1,6 +1,7 @@
 import { Form, ListGroup } from "react-bootstrap";
 import './LiveSearchBox.css'
 import React from 'react';
+import {BiSearchAlt2} from 'react-icons/bi'
 
 const LiveSearchBox = (props) => {
     const {placeholderText, results, searchTextChanged, resultSelected} = props;
@@ -25,6 +26,7 @@ const LiveSearchBox = (props) => {
             <Form.Control className="search-book-design" type="search" placeholder={placeholderText}
                     onChange={handleInputChange}
                     value={searchText}/>
+            <BiSearchAlt2 className="img-in-input"/>
             <ListGroup className="search-results">
                 {resultElements}
             </ListGroup>
