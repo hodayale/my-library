@@ -53,7 +53,7 @@ const SignupPage = (props) => {
     }
 
     return(
-        <Modal show={show} backdrop="static" keyboard={false} centered>
+        <Modal animation={false} show={show} backdrop="static" keyboard={false} centered>
             <Modal.Header className="justify-content-center">
                 <Modal.Title className="logo-design text-danger">הרשמה לספריה שלי</Modal.Title>
             </Modal.Header>
