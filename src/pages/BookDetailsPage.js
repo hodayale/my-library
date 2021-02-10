@@ -66,7 +66,7 @@ const BookDetailsPage = (props) => {
                     <p><span style={{fontWeight: "bold"}}>קטגוריה: </span>{selectedBook.category}</p>
                     <p><span style={{fontWeight: "bold"}}>מס' עמודים: </span>{selectedBook.numPages}</p>
                     <h4>תקציר</h4>
-                    <p>{selectedBook.summery}</p>
+                    <p>{selectedBook.summary}</p>
                 </Col>
                 
             </Row>

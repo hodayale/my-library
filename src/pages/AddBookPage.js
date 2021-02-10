@@ -12,7 +12,7 @@ const AddBookPage = (props) => {
     const [bookPublishDateYear, setbookPublishDateYear] = React.useState("בחר שנה...");
     const [bookCategory, setbookCategory] = React.useState('');
     const [bookNumPages, setbookNumPages] = React.useState(0);
-    const [bookSummery, setbookSummery] = React.useState('');
+    const [bookSummary, setbookSummery] = React.useState('');
     const [bookCover, setbookCover] = React.useState('');
     const [validated, setValidated] = React.useState(false);
     const [validateMsg, setvalidateMsg] = React.useState('');
@@ -39,7 +39,7 @@ const AddBookPage = (props) => {
             const foundBook = books.find((book) => {
                 return (book.bookName === bookName && book.auther === bookAuther)
             });
-            if(bookName === "" || bookAuther === "" || bookPublisher === "" || bookCover === "" || bookSummery === "") {
+            if(bookName === "" || bookAuther === "" || bookPublisher === "" || bookCover === "" || bookSummary === "") {
                 setvalidateMsg("אנא הכנס את כל הנתונים הדרושים");
             }
             else if(foundBook) {
@@ -60,7 +60,7 @@ const AddBookPage = (props) => {
                     category: bookCategory,
                     numPages: bookNumPages,
                     bookCover: bookCover,
-                    summery: bookSummery
+                    summary: bookSummary
                 }
                 addBook(newBook);
                 //showing the modal window of success
@@ -169,7 +169,7 @@ const AddBookPage = (props) => {
                         </Form.Group>
                         <Form.Group controlId="formBookSummery">
                             <Form.Label>תקציר</Form.Label>
-                            <Form.Control className="input-rounded-corners" as="textarea" rows={5} onChange={(e) => {setbookSummery(e.target.value)}} value={bookSummery} required/>
+                            <Form.Control className="input-rounded-corners" as="textarea" rows={5} onChange={(e) => {setbookSummery(e.target.value)}} value={bookSummary} required/>
                         </Form.Group>  
                         <Form.Text className="text-danger">{validateMsg}</Form.Text>
                     </Col>
