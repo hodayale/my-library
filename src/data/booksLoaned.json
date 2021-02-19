@@ -1,7 +1,12 @@
 [
     {
-        "userId": 1,
-        "bookId": 6,
-        "nameOfLoaner": "ענת כהן"
+      "userId": 1,
+      "bookId": 21,
+      "nameOfLoaner": "אביטל גולדיס"
+    },
+    {
+      "userId": 1,
+      "bookId": 35,
+      "nameOfLoaner": "יעל לוי"
     }
-]
+  ]
