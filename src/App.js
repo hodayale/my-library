@@ -15,7 +15,29 @@ import booksReadJSON from './data/booksRead.json';
 import booksWantToOwnJSON from './data/booksWantToOwn.json';
 import booksWantToReadJSON from './data/booksWantToRead.json';
 
+// import { AsyncStorage } from 'react';
+// import Parse from 'parse/dist/parse.min.js';
+
 function App() {
+
+  // Parse.setAsyncStorage(AsyncStorage);
+  //Parse.initialize("Cf54cNRullXWYSWiG3S2BtOa84LPT6se5jNFhG9f","cuIZh1lLXdxzoQtCzk8ZrXQze9ErEjIvUgdY8oUI"); 
+  // Parse.initialize('Cf54cNRullXWYSWiG3S2BtOa84LPT6se5jNFhG9f', 'cuIZh1lLXdxzoQtCzk8ZrXQze9ErEjIvUgdY8oUI', 'olJsROvoxNV3BbqSBsiX1o5KXnxwx4JoAPDgUE9M');
+  // Parse.serverURL = 'https://parseapi.back4app.com/';
+
+  // const MyFirstClass = Parse.Object.extend("MyFirstClass");
+  // const myFirstClass = new MyFirstClass();
+
+  // myFirstClass.set("name", "I'm able to save objects!");
+  // myFirstClass.save()
+  // .then((object) => {
+  //   // Success
+  //   console.log('New object created with objectId: ' + object.id);
+  // }, (error) => {
+  //   // Save fails
+  //   console.log('Failed to create new object, with error code: ' + error.message);
+  // });
+
   let user;
   if(localStorage.getItem('activeUser')) {
     user = JSON.parse(localStorage.getItem('activeUser'));
@@ -29,14 +51,20 @@ function App() {
 
   // All Books state
   //***********************************************
+  // const [allBooks, setallBooks] = React.useState([]);
+  // const myLibraryBooks = Parse.Object.extend('myLibraryBooks');
+  // const query = new Parse.Query(myLibraryBooks);
+  // query.find().then((results) => {
+  //   console.log(`The books in myLibraryBooks are: ${JSON.stringify(results)}`)
+  //   setallBooks(results);
+  // });
   let books;
   if(localStorage.getItem('booksJSON')) {
     books = JSON.parse(localStorage.getItem('booksJSON'));
   }else {
     books = booksJSON;
   }
-
-  const [allBooks, setallBooks] = React.useState(books);
+  const [allBooks, setallBooks] = React.useState(books);  
 
   // Books Loaned state
   //***********************************************
@@ -242,8 +270,8 @@ function App() {
         setResults([]);
         return;
     }
-    const booksFound = allBooks.filter(book => book.bookName.includes(searchText)/* || book.auther.includes(searchText)*/)
-                              .map((item) => {return {name: item.bookName, id: item.id}});
+    const booksFound = allBooks.filter(book => book.bookName.includes(searchText) || book.auther.includes(searchText))
+                              .map((item) => {return {name: item.bookName, auther: item.auther, id: item.id}});
     setResults(booksFound);
   }
 

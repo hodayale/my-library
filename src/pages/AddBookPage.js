@@ -19,7 +19,7 @@ const AddBookPage = (props) => {
     const [show, setShow] = React.useState(false);
 
     const months = ["ינואר","פברואר","מרץ","אפריל","מאי","יוני","יולי","אוגוסט","ספטמבר","אוקטובר","נובמבר","דצמבר"].map((month, index) => <option key={index}>{month}</option>);
-    let years = [];
+    const years = [];
     for(let i=new Date().getFullYear(); i>1900 ; i--)
     {
         years.push(<option key={i}>{i}</option>)
@@ -186,7 +186,7 @@ const AddBookPage = (props) => {
             <Modal show={show} backdrop="static" keyboard={false} centered>
                 <Modal.Footer className="justify-content-center">
                     <p className="text-center">הספר נוסף בהצלחה!</p>
-                    <Button className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={()=>{setShow(false)}} onKeyDown={handleModalEnter}>Close</Button>
+                    <Button className="mt-4 button-rounded-corners bg-danger" variant="danger" onClick={()=>{setShow(false)}} onKeyDown={handleModalEnter}>סגור</Button>
                 </Modal.Footer>
             </Modal>
         </Container>

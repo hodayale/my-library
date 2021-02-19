@@ -52,8 +52,8 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
                     <NavDropdown title="הספרים" id="basic-nav-dropdown">
-                        <NavDropdown.Item href="#/books" onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
-                        <NavDropdown.Item href="#/addBook" onClick={handleMyBooks}>הוסף ספר</NavDropdown.Item>
+                        <NavDropdown.Item className="nav-drop-down" href="#/books" onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
+                        <NavDropdown.Item className="nav-drop-down" href="#/addBook" onClick={handleMyBooks}>הוסף ספר</NavDropdown.Item>
                     </NavDropdown>
                     <Form>
                         <InputGroup>
