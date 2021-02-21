@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/my-library/static/css/main.46cc69e6.chunk.css",
-    "main.js": "/my-library/static/js/main.57a6751e.chunk.js",
-    "main.js.map": "/my-library/static/js/main.57a6751e.chunk.js.map",
+    "main.css": "/my-library/static/css/main.18c5dcc3.chunk.css",
+    "main.js": "/my-library/static/js/main.2735d014.chunk.js",
+    "main.js.map": "/my-library/static/js/main.2735d014.chunk.js.map",
     "runtime-main.js": "/my-library/static/js/runtime-main.d29f7928.js",
     "runtime-main.js.map": "/my-library/static/js/runtime-main.d29f7928.js.map",
     "static/js/2.6dffe26b.chunk.js": "/my-library/static/js/2.6dffe26b.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.749dc77e.chunk.js": "/my-library/static/js/3.749dc77e.chunk.js",
     "static/js/3.749dc77e.chunk.js.map": "/my-library/static/js/3.749dc77e.chunk.js.map",
     "index.html": "/my-library/index.html",
-    "static/css/main.46cc69e6.chunk.css.map": "/my-library/static/css/main.46cc69e6.chunk.css.map",
+    "static/css/main.18c5dcc3.chunk.css.map": "/my-library/static/css/main.18c5dcc3.chunk.css.map",
     "static/js/2.6dffe26b.chunk.js.LICENSE.txt": "/my-library/static/js/2.6dffe26b.chunk.js.LICENSE.txt",
     "static/media/App.css": "/my-library/static/media/books.35ffd38c.jpg",
     "static/media/love-book.d672d2ac.svg": "/my-library/static/media/love-book.d672d2ac.svg"
@@ -18,7 +18,7 @@
   "entrypoints": [
     "static/js/runtime-main.d29f7928.js",
     "static/js/2.6dffe26b.chunk.js",
-    "static/css/main.46cc69e6.chunk.css",
-    "static/js/main.57a6751e.chunk.js"
+    "static/css/main.18c5dcc3.chunk.css",
+    "static/js/main.2735d014.chunk.js"
   ]
 }
