@@ -26,7 +26,7 @@ const LiveSearchBox = (props) => {
             <Form.Control className="search-book-design" type="search" placeholder={placeholderText}
                     onChange={handleInputChange}
                     value={searchText}/>
-            <BiSearchAlt2 className="img-in-input"/>
+            <BiSearchAlt2 className="img-in-input search-img"/>
             <ListGroup className="search-results">
                 {resultElements}
             </ListGroup>

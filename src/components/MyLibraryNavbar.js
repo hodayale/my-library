@@ -55,12 +55,12 @@ const MyLibraryNavbar = (props) => {
                         <Nav.Link className="nav-drop-down" href="#/books" onClick={handleMyBooks}>הספרים שלי</Nav.Link>
                         <Nav.Link className="nav-drop-down" href="#/addBook" onClick={handleMyBooks}>הוסף ספר</Nav.Link>
                     {/* </NavDropdown> */}
-                    <Form>
+                    {/* <Form> */}
                         {/* <InputGroup> */}
                             <LiveSearchBox placeholderText="חפש ספר" results={results}
                                             searchTextChanged={searchBook} resultSelected={showSearchResults}/>
                         {/* </InputGroup> */}
-                    </Form>
+                    {/* </Form> */}
                 </Nav>
                 
             </Navbar.Collapse>

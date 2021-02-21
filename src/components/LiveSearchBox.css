@@ -22,4 +22,20 @@
     left: 0px;
     top: 10px;
     z-index: 101; 
-  } 
+} 
+
+.search-img {
+    margin-left: 20px;
+}
+
+.search-book-design {
+    width: 100%; 
+    border-radius: 30px;
+    background-color: #f8d7da;
+}
+
+@media screen and (min-width: 900px) {
+    .search-book-design {
+        width: 500px;
+    }
+}
