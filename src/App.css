@@ -108,11 +108,11 @@ body{
   height: 27rem;
   border: 1px solid #e94c59;
   border-radius: 30px;
-  margin-right: 100px;
+  margin: auto;
 }
 
 .image {
-  margin-right: 100px;
+  margin-right: 50px;
 }
 
 .link-design {
@@ -171,4 +171,8 @@ body{
 
 .mr-1 {
   margin-right: 10px !important;
+}
+
+.col-sm-6 {
+  margin-top: 20px;
 }

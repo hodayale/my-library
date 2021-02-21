@@ -51,15 +51,15 @@ const MyLibraryNavbar = (props) => {
             <Navbar.Toggle aria-controls="basic-navbar-nav" />
             <Navbar.Collapse id="basic-navbar-nav"> 
                 <Nav> 
-                    <NavDropdown title="הספרים" id="basic-nav-dropdown">
-                        <NavDropdown.Item className="nav-drop-down" href="#/books" onClick={handleMyBooks}>הספרים שלי</NavDropdown.Item>
-                        <NavDropdown.Item className="nav-drop-down" href="#/addBook" onClick={handleMyBooks}>הוסף ספר</NavDropdown.Item>
-                    </NavDropdown>
+                    {/* <NavDropdown title="הספרים" id="basic-nav-dropdown"> */}
+                        <Nav.Link className="nav-drop-down" href="#/books" onClick={handleMyBooks}>הספרים שלי</Nav.Link>
+                        <Nav.Link className="nav-drop-down" href="#/addBook" onClick={handleMyBooks}>הוסף ספר</Nav.Link>
+                    {/* </NavDropdown> */}
                     <Form>
-                        <InputGroup>
+                        {/* <InputGroup> */}
                             <LiveSearchBox placeholderText="חפש ספר" results={results}
                                             searchTextChanged={searchBook} resultSelected={showSearchResults}/>
-                        </InputGroup>
+                        {/* </InputGroup> */}
                     </Form>
                 </Nav>
                 

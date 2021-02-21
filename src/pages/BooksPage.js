@@ -59,7 +59,7 @@ class BooksPage extends React.Component {
             });
 
         return(
-            <Row className="mt-4">
+            <Row>
                 <Col xl={2} lg={3}  md={4} sm={6}>
                     <ListGroup className="list-grout-design">
                         <ListGroup.Item className={this.state.active === 'owned' ? "active" : ""}
