@@ -1,18 +1,27 @@
 import { Col, Form, Row } from "react-bootstrap";
-import React from 'react';
+import React, { useEffect } from 'react';
 import './Checkboxes.css'
 
 const Checkboxes = (props) => {
     const {bookId, userId, bookOwned, bookRead, bookWantToRead, bookWantToOwn, bookLoaned, 
             bookLoanerName, showLoaned, addBookOwned, removeBookOwned, addBookRead, removeBookRead,
             addBookWantToRead, removeBookWantToRead, addBookWantToOwn, removeBookWantToOwn,
-            removeBookLoaned, updateBookLoaned} = props;
+            addBookLoaned, removeBookLoaned, updateBookLoaned} = props;
     const [owned, setOwned] = React.useState(bookOwned);
     const [read, setRead] = React.useState(bookRead);
     const [wantToRead, setWantToRead] = React.useState(bookWantToRead);
     const [wantToOwn, setWantToOwn] = React.useState(bookWantToOwn);
     const [loaned, setLoaned] = React.useState(bookLoaned);
     const [loanerName, setLoanerName] = React.useState(bookLoanerName);
+
+    useEffect(() => {
+        setOwned(bookOwned);
+        setRead(bookRead);
+        setWantToRead(bookWantToRead);
+        setWantToOwn(bookWantToOwn);
+        setLoaned(bookLoaned);
+        setLoanerName(bookLoanerName);
+    }, [bookOwned, bookRead, bookWantToRead, bookWantToOwn, bookLoaned, bookLoanerName]);
 
     const handleChangedOwned = () => {
         setOwned(!owned); 
@@ -87,7 +96,9 @@ const Checkboxes = (props) => {
             bookId: parseInt(bookId)
         }
 
-        if(loaned) {
+        if(!loaned) {
+            addBookLoaned(loanObj);
+        } else {
             removeBookLoaned(loanObj);
         }
     }

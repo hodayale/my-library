@@ -1,5 +1,5 @@
 import '../icons/love-book.svg';
-import { Form, Nav, Navbar, InputGroup, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 import React from 'react';
 import './MyLibraryNavbar.css';
 import LoginPage from '../pages/LoginPage';

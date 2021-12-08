@@ -31,7 +31,7 @@ class BookCard extends React.Component{
                                                                 addBookRead={this.props.addBookRead} removeBookRead={this.props.removeBookRead}
                                                                 addBookWantToRead={this.props.addBookWantToRead} removeBookWantToRead={this.props.removeBookWantToRead}
                                                                 addBookWantToOwn={this.props.addBookWantToOwn} removeBookWantToOwn={this.props.removeBookWantToOwn}
-                                                                removeBookLoaned={this.props.removeBookLoaned} updateBookLoaned={this.props.updateBookLoaned}/>
+                                                                addBookLoaned={this.props.addBookLoaned} removeBookLoaned={this.props.removeBookLoaned} updateBookLoaned={this.props.updateBookLoaned}/>
                                                 </Card.Footer> : '';
 
         return(

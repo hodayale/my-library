@@ -7,7 +7,7 @@ const BookDetailsPage = (props) => {
     const {activeUser, books, booksOwned, booksRead, booksWantToRead, booksWantToOwn, 
             booksLoaned, addBookOwned, removeBookOwned, addBookRead, removeBookRead,
             addBookWantToRead, removeBookWantToRead, addBookWantToOwn, removeBookWantToOwn,
-            removeBookLoaned, updateBookLoaned} = props;
+            addBookLoaned, removeBookLoaned, updateBookLoaned} = props;
     const {bookId} = useParams();
 
     //get book details by ID
@@ -41,7 +41,8 @@ const BookDetailsPage = (props) => {
                                     addBookRead={addBookRead} removeBookRead={removeBookRead}
                                     addBookWantToRead={addBookWantToRead} removeBookWantToRead={removeBookWantToRead}
                                     addBookWantToOwn={addBookWantToOwn} removeBookWantToOwn={removeBookWantToOwn}
-                                    removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/> ;
+                                    addBookLoaned={addBookLoaned} removeBookLoaned={removeBookLoaned} updateBookLoaned={updateBookLoaned}/> ;    
+
     }
     
 

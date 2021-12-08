@@ -1,6 +1,6 @@
 import { Button, Col, Form, Modal, Row } from "react-bootstrap";
 import React from 'react';
-import { ImEye, ImEyeBlocked } from 'react-icons/im';
+//import { ImEye, ImEyeBlocked } from 'react-icons/im';
 import EmailAndPassword from "../components/EmailAndPassword";
 
 const SignupPage = (props) => {
